@@ -20,6 +20,10 @@ export default class MyDocument extends Document {
             href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"
             rel="stylesheet"
           />
+          <link
+            href="https://cdn.jaga­me.com/logos/v2/logo.square.pink.png"
+            rel="shortcut icon"
+          />
         </Head>
 
         <body className="custom_class">
