@@ -21,9 +21,10 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://cdn.jaga­me.com/logos/v2/logo.square.pink.png"
+            href="https://cdn.jaga-me.com/logos/v2/logo.square.pink.png"
             rel="shortcut icon"
           />
+          <title>Jaga-me</title>
         </Head>
 
         <body className="custom_class">

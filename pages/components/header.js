@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Menu, Input, Segment, Image } from "semantic-ui-react";
 import Head from "next/head";
 import Link from "next/link";
+import { Context } from "./context";
 
 export default class PageHeader extends Component {
   static async getInitialProps() {}
@@ -17,9 +18,12 @@ export default class PageHeader extends Component {
           <title>Home</title>
         </Head>
         <Menu secondary>
-          <Link href={{ pathname: "/" }} passHref>
+          <Link href={{ pathname: "/index" }} passHref>
             <Menu.Item>
-              <Image src="https://cdn.jaga­me.com/logos/v2/logo.pink.large.png" />
+              <Image
+                src="https://cdn.jaga-me.com/logos/v2/logo.square.pink.png"
+                size="mini"
+              />
             </Menu.Item>
           </Link>
           <Link href={{ pathname: "/" }} passHref>
@@ -28,6 +32,11 @@ export default class PageHeader extends Component {
           <Link href={{ pathname: "/patients" }} passHref>
             <Menu.Item>Patients</Menu.Item>
           </Link>
+          <Context.Consumer>
+            {context => {
+              return <Menu.Item>I'm {context ? context.sessionId : ""}</Menu.Item>;
+            }}
+          </Context.Consumer>
           <Menu.Menu position="right">
             <Menu.Item>
               <Input icon="search" placeholder="Search..." />
