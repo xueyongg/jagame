@@ -17,7 +17,7 @@ export default class PageHeader extends Component {
         <Head>
           <title>Home</title>
         </Head>
-        <Menu secondary>
+        <Menu secondary stackable>
           <Link href={{ pathname: "/index" }} passHref>
             <Menu.Item>
               <Image

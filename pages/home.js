@@ -6,7 +6,7 @@ import {
   Segment,
   Card,
   Icon,
-  Image,
+  Image,Grid,
   List,
   Header
 } from "semantic-ui-react";
@@ -14,6 +14,7 @@ import Head from "next/head";
 import Link from "next/link";
 import PageHeader from "./components/header";
 import { Context } from "./components/context";
+import Product from './components/product';
 
 export default class Home extends Component {
   static async getInitialProps() {
@@ -105,7 +106,11 @@ class Home_bookmark extends Component {
 class Home_search extends Component {
   render() {
     return (
-      <Segment>This will be the search and also bookmarked products</Segment>
+      <Segment>
+        <Grid>
+          <Product/>
+        </Grid>
+      </Segment>
     );
   }
 }
