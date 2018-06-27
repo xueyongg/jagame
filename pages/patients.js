@@ -23,36 +23,57 @@ import PatientForm from "./components/patientForm";
 import { Context } from "./components/context";
 const moment = require("moment");
 export const ActivePageContext = React.createContext();
+export const ActiveUserContext = React.createContext();
 
 export default class Patients extends Component {
   state = {
     activeItem: "pending",
     updateTab: tab => {
       this.setState({ activeItem: tab });
+    },
+    activeUser: {},
+    updateUser: user => {
+      this.setState({ activeUser: user });
     }
   };
 
   render() {
     return (
       <ActivePageContext.Provider value={this.state}>
-        <div>
-          <Head>
-            <title>Patients</title>
-          </Head>
-          <PageHeader />
-          <Container>
-            <Grid style={{ height: "600px" }} stackable>
-              <Grid.Row stretched>
-                <Grid.Column width={6}>
-                  <Patients_list />
-                </Grid.Column>
-                <Grid.Column width={10}>
-                  <Patient_display />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Container>
-        </div>
+        <Context.Consumer>
+          {mainContext => {
+            if (mainContext) {
+              let chosenCollections =
+                mainContext.userData.collections[
+                  this.state.activeItem !== "new"
+                    ? this.state.activeItem
+                    : "pending"
+                ];
+              return (
+                <div>
+                  <ActiveUserContext.Provider value={chosenCollections[0]}>
+                    <Head>
+                      <title>Patients</title>
+                    </Head>
+                    <PageHeader />
+                    <Container>
+                      <Grid style={{ height: "600px" }} stackable>
+                        <Grid.Row stretched>
+                          <Grid.Column width={6}>
+                            <Patients_list />
+                          </Grid.Column>
+                          <Grid.Column width={10}>
+                            <Patient_display />
+                          </Grid.Column>
+                        </Grid.Row>
+                      </Grid>
+                    </Container>
+                  </ActiveUserContext.Provider>
+                </div>
+              );
+            }
+          }}
+        </Context.Consumer>
       </ActivePageContext.Provider>
     );
   }
@@ -89,6 +110,20 @@ class Patients_list extends Component {
                   Completed
                   <Label color="pink">{0}</Label>
                 </Menu.Item>
+                <Menu.Menu position="right">
+                  <Menu.Item>
+                    <Button
+                      icon
+                      fluid
+                      onClick={() => {
+                        updateTab("new");
+                      }}
+                    >
+                      New
+                      <Icon name="plus" />
+                    </Button>
+                  </Menu.Item>
+                </Menu.Menu>
               </Menu>
 
               <Segment attached="bottom">
@@ -145,7 +180,7 @@ class Patients_list extends Component {
                     }}
                   </Context.Consumer>
 
-                  <Button
+                  {/* <Button
                     icon
                     fluid
                     onClick={() => {
@@ -154,7 +189,7 @@ class Patients_list extends Component {
                   >
                     <Icon name="plus" />
                     New patient
-                  </Button>
+                  </Button> */}
                 </List>
               </Segment>
             </Segment>
@@ -168,14 +203,20 @@ class Patients_list extends Component {
 const Patient_display = activeItem => {
   return (
     <ActivePageContext.Consumer>
-      {context => {
-        const { activeItem } = context;
+      {activePageContext => {
+        const { activeItem } = activePageContext;
         return (
           <Segment>
             {activeItem === "new" ? (
               <PatientForm />
             ) : (
-              <Patient patient={{ name: "Alice" }} />
+              <ActiveUserContext.Consumer>
+                {activeUser => (
+                  <Patient
+                    patient={activeUser ? activeUser : { name: "alice" }}
+                  />
+                )}
+              </ActiveUserContext.Consumer>
             )}
           </Segment>
         );

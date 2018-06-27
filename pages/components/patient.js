@@ -22,12 +22,19 @@ export default class Patient extends Component {
   }
 
   render() {
+    const {
+      first_name,
+      last_name,
+      gender,
+      phone,
+      description
+    } = this.props.patient;
     return (
       <div>
         <Grid>
           <Grid.Row>
             <Grid.Column>
-              <Header as="h2" content={this.props.patient.name} />
+              <Header as="h2" content={first_name} />
               <Button icon>
                 <Icon name="github" />
                 Download
