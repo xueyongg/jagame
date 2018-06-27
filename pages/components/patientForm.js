@@ -16,6 +16,7 @@ import {
   Form
 } from "semantic-ui-react";
 import { Context } from "./context";
+import { ActivePageContext } from "../patients";
 
 export default class PatientForm extends Component {
   static async getInitialProps({ patient }) {
@@ -32,7 +33,7 @@ export default class PatientForm extends Component {
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
-  handleSubmit = (e, context) => {
+  handleSubmit = (e, context, activePageContext) => {
     e.preventDefault();
     this.setState({ loading: true });
     let { first_name, last_name, gender, phone, description } = this.state;
@@ -46,10 +47,8 @@ export default class PatientForm extends Component {
       status: "pending",
       time_stamp: context.moment()
     });
-    context.update({
-      ...context.userData.collections.pending,
-      pendingCollection
-    });
+    context.updateData(context.userData);
+    activePageContext.updateTab("pending");
   };
 
   render() {
@@ -62,60 +61,69 @@ export default class PatientForm extends Component {
       <div>
         <Header as="h1" content="New Patient" />
         <Context.Consumer>
-          {context => (
-            <Form
-              loading={this.state.loading}
-              onSubmit={e => this.handleSubmit(e, context)}
-            >
-              <Form.Group widths="equal">
-                <Form.Input
-                  fluid
-                  name="first_name"
-                  label="First name"
-                  value={first_name}
-                  placeholder="First name"
-                  required
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  fluid
-                  name="last_name"
-                  label="Last name"
-                  value={last_name}
-                  placeholder="Last name"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
+          {context => {
+            return (
+              <ActivePageContext.Consumer>
+                {activePageContext => {
+                  return (
+                    <Form
+                      loading={this.state.loading}
+                      onSubmit={e =>
+                        this.handleSubmit(e, context, activePageContext)
+                      }
+                    >
+                      <Form.Group widths="equal">
+                        <Form.Input
+                          fluid
+                          name="first_name"
+                          label="First name"
+                          value={first_name}
+                          placeholder="First name"
+                          required
+                          onChange={this.handleChange}
+                        />
+                        <Form.Input
+                          fluid
+                          name="last_name"
+                          label="Last name"
+                          value={last_name}
+                          placeholder="Last name"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
+                      <Form.Group widths={2}>
+                        <Form.Select
+                          options={options}
+                          name="gender"
+                          value={gender}
+                          placeholder="Gender"
+                          label="Gender"
+                          required
+                          onChange={this.handleChange}
+                        />
 
-              <Form.Group widths={2}>
-                <Form.Select
-                  options={options}
-                  name="gender"
-                  value={gender}
-                  placeholder="Gender"
-                  label="Gender"
-                  required
-                  onChange={this.handleChange}
-                />
-
-                <Form.Input
-                  label="Phone"
-                  value={phone}
-                  name="phone"
-                  placeholder="Phone"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Form.TextArea
-                label="Description"
-                name="description"
-                value={description}
-                placeholder="More descriptions about the patient..."
-                onChange={this.handleChange}
-              />
-              <Button type="submit">Create</Button>
-            </Form>
-          )}
+                        <Form.Input
+                          label="Phone"
+                          value={phone}
+                          name="phone"
+                          placeholder="Phone"
+                          onChange={this.handleChange}
+                        />
+                      </Form.Group>
+                      <Form.TextArea
+                        label="Description"
+                        name="description"
+                        value={description}
+                        placeholder="More descriptions about the patient..."
+                        onChange={this.handleChange}
+                      />
+                      <Button type="submit">Create</Button>
+                    </Form>
+                  );
+                }}
+              </ActivePageContext.Consumer>
+            );
+          }}
         </Context.Consumer>
       </div>
     );

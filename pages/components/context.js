@@ -13,9 +13,10 @@ export default class ContextProvider extends Component {
       },
       bookmarkedProducts: []
     },
-    update: data => {
+    updateData: data => {
       if (this.sessionId) {
         window.localStorage.setItem(sessionId, data);
+        console.log("Window localStorage", window.localStorage);
         this.setState({ userData: data });
       }
     },

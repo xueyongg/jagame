@@ -22,81 +22,96 @@ import Patient from "./components/patient";
 import PatientForm from "./components/patientForm";
 import { Context } from "./components/context";
 const moment = require("moment");
+export const ActivePageContext = React.createContext();
 
 export default class Patients extends Component {
+  state = {
+    activeItem: "pending",
+    updateTab: tab => {
+      this.setState({ activeItem: tab });
+    }
+  };
+
   render() {
     return (
-      <div>
-        <Head>
-          <title>Patients</title>
-        </Head>
-        <PageHeader />
-        <Container>
-          <Patients_list />
-        </Container>
-      </div>
+      <ActivePageContext.Provider value={this.state}>
+        <div>
+          <Head>
+            <title>Patients</title>
+          </Head>
+          <PageHeader />
+          <Container>
+            <Grid style={{ height: "600px" }} stackable>
+              <Grid.Row stretched>
+                <Grid.Column width={6}>
+                  <Patients_list />
+                </Grid.Column>
+                <Grid.Column width={10}>
+                  <Patient_display />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Container>
+        </div>
+      </ActivePageContext.Provider>
     );
   }
 }
 
 class Patients_list extends Component {
-  state = { activeItem: "pending" };
-
-  handleSubHeaderClick = (e, { name }) => this.setState({ activeItem: name });
+  componentDidMount() {
+    this.state = { ...this.props };
+  }
   render() {
     // Will loop through all the list that were created
-    const { activeItem } = this.state;
     return (
-      <div>
-        <Context.Consumer>
-          {context => {
-            let collections =
-              context && context.userData ? context.userData.collections : [];
-            console.log(collections);
-            let chosenCollection =
-              collections[activeItem !== "new-tab" ? activeItem : "pending"];
-            return (
-              <Grid style={{ height: "600px" }} stackable>
-                <Grid.Row stretched>
-                  <Grid.Column width={6}>
-                    <Segment>
-                      <Menu attached="top" tabular>
-                        <Menu.Item
-                          name="pending"
-                          active={activeItem === "pending"}
-                          onClick={this.handleSubHeaderClick}
-                        >
-                          Pending
-                          <Label color="pink">
-                            {collections["pending"].length}
-                          </Label>
-                        </Menu.Item>
-                        <Menu.Item
-                          name="completed"
-                          active={activeItem === "completed"}
-                          onClick={this.handleSubHeaderClick}
-                        >
-                          Completed
-                          <Label color="pink">
-                            {collections["completed"].length}
-                          </Label>
-                        </Menu.Item>
-                        <Menu.Menu position="right">
-                          <Menu.Item
-                            name="new-tab"
-                            onClick={this.handleSubHeaderClick}
-                          >
-                            <Icon name="add" />
-                            New
-                          </Menu.Item>
-                        </Menu.Menu>
-                      </Menu>
+      <ActivePageContext.Consumer>
+        {activePageContext => {
+          const { activeItem, updateTab } = activePageContext;
+          return (
+            <Segment>
+              <Menu attached="top" tabular>
+                <Menu.Item
+                  name="pending"
+                  active={activeItem === "pending"}
+                  onClick={() => {
+                    updateTab("pending");
+                  }}
+                >
+                  Pending
+                  <Label color="pink">{0}</Label>
+                </Menu.Item>
+                <Menu.Item
+                  name="completed"
+                  active={activeItem === "completed"}
+                  onClick={() => updateTab("completed")}
+                >
+                  Completed
+                  <Label color="pink">{0}</Label>
+                </Menu.Item>
+              </Menu>
 
-                      <Segment attached="bottom">
-                        <List celled>
-                          {chosenCollection.length !== 0 ? (
-                            chosenCollection.map((user, i) => {
-                              console.log(user);
+              <Segment attached="bottom">
+                <List celled>
+                  <Context.Consumer>
+                    {context => {
+                      if (context) {
+                        let userData = context.userData;
+                        if (
+                          userData.collections[activeItem] &&
+                          userData.collections[activeItem].length !== 0
+                        )
+                          return userData.collections[activeItem].map(
+                            (collection, i) => {
+                              console.log("collection", collection);
+                              const {
+                                first_name,
+                                last_name,
+                                gender,
+                                phone,
+                                description,
+                                time_stamp
+                              } = collection;
                               return (
                                 <List.Item active key={i}>
                                   <List.Icon
@@ -105,44 +120,66 @@ class Patients_list extends Component {
                                     verticalAlign="middle"
                                   />
                                   <List.Content>
-                                    <List.Header as="a">Alice</List.Header>
+                                    <List.Header as="a">
+                                      {first_name} {last_name}
+                                    </List.Header>
                                     <List.Description as="a">
-                                      Updated {user.time_stamp.from(moment())}
+                                      Updated {time_stamp.from(moment())}
                                     </List.Description>
                                   </List.Content>
                                 </List.Item>
                               );
-                            })
-                          ) : (
+                            }
+                          );
+                        else
+                          return (
                             <Header
                               as="h4"
                               content={`No ${
-                                activeItem !== "new-tab"
-                                  ? activeItem
-                                  : "pending"
+                                activeItem !== "new" ? activeItem : "pending"
                               } users`}
                               textAlign="center"
                             />
-                          )}
-                        </List>
-                      </Segment>
-                    </Segment>
-                  </Grid.Column>
-                  <Grid.Column width={10}>
-                    <Segment>
-                      {activeItem === "new-tab" ? (
-                        <PatientForm />
-                      ) : (
-                        <Patient patient={{ name: "Alice" }} />
-                      )}
-                    </Segment>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            );
-          }}
-        </Context.Consumer>
-      </div>
+                          );
+                      }
+                    }}
+                  </Context.Consumer>
+
+                  <Button
+                    icon
+                    fluid
+                    onClick={() => {
+                      updateTab("new");
+                    }}
+                  >
+                    <Icon name="plus" />
+                    New patient
+                  </Button>
+                </List>
+              </Segment>
+            </Segment>
+          );
+        }}
+      </ActivePageContext.Consumer>
     );
   }
 }
+
+const Patient_display = activeItem => {
+  return (
+    <ActivePageContext.Consumer>
+      {context => {
+        const { activeItem } = context;
+        return (
+          <Segment>
+            {activeItem === "new" ? (
+              <PatientForm />
+            ) : (
+              <Patient patient={{ name: "Alice" }} />
+            )}
+          </Segment>
+        );
+      }}
+    </ActivePageContext.Consumer>
+  );
+};
