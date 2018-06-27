@@ -109,27 +109,3 @@ class Home_search extends Component {
     );
   }
 }
-
-{
-  /* <List.Item>
-<Card color="pink">
-  <Image src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg" />
-  <Card.Content>
-    <Card.Header>Daniel</Card.Header>
-    <Card.Meta>Last updated 2 hours ago</Card.Meta>
-    <Card.Description>Daniel's conditions</Card.Description>
-  </Card.Content>
-  <Card.Content extra>
-    <Link
-      href={{ pathname: "/patients", query: { name: "daniel" } }}
-      passHref
-    >
-      <a>
-        <Icon name="user" />
-        View more
-      </a>
-    </Link>
-  </Card.Content>
-</Card>
-</List.Item> */
-}
