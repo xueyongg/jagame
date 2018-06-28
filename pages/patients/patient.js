@@ -13,8 +13,10 @@ import {
   Button,
   Statistic,
   Label,
-  Form
+  Form,
+  Message
 } from "semantic-ui-react";
+import Search from "../components/search";
 
 export default class Patient extends Component {
   static async getInitialProps({ patient }) {
@@ -35,13 +37,20 @@ export default class Patient extends Component {
           <Grid.Row>
             <Grid.Column>
               <Header as="h2" content={first_name} />
-              <Button icon>
-                <Icon name="github" />
-                Download
-              </Button>
-              <Button icon>
-                <Icon name="github" /> Check Out
-              </Button>
+              <Segment clearing>
+                <Message>
+                  {/* <Message.Header>Changes in Service</Message.Header> */}
+                  <p>{description ? description : "No description"}</p>
+                </Message>
+
+                <Button floated="right" icon>
+                  <Icon name="github" />
+                  Download
+                </Button>
+                <Button floated="right" icon>
+                  <Icon name="github" /> Check Out
+                </Button>
+              </Segment>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
@@ -51,8 +60,10 @@ export default class Patient extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
-              Also looking for these? Search function, also looking for
-              recommendation function as well
+              <Header as="h3" icon>
+                Product Search
+              </Header>
+              <Search />
             </Grid.Column>
           </Grid.Row>
         </Grid>

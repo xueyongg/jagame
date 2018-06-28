@@ -117,7 +117,7 @@ export default class PatientForm extends Component {
                         placeholder="More descriptions about the patient..."
                         onChange={this.handleChange}
                       />
-                      <Button type="submit">Create</Button>
+                      <Button type="submit" primary fluid>Create</Button>
                     </Form>
                   );
                 }}

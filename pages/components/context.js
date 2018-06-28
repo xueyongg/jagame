@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 const moment = require("moment");
+import axios from "axios";
 
 export const Context = React.createContext();
+export const ProductsContext = React.createContext();
 export default class ContextProvider extends Component {
-  static async getInitialProps() {}
+  static async getInitialProps() {
+    const url =
+      "https://82v9umvzoj.execute-api.ap-southeast-1.amazonaws.com/dev/products";
+    let response = await axios({ method: "GET", url }).catch(e => {
+      throw e;
+    });
+    console.log(response);
+    return { products: response ? response.data : null };
+  }
   state = {
     sessionId: "",
     userData: {
@@ -43,11 +53,22 @@ export default class ContextProvider extends Component {
             bookmarkedProducts: []
           }
     });
+
+    // Products set up
+    if (
+      window.localStorage &&
+      window.localStorage.getItem("products") === null
+    ) {
+      window.localStorage.setItem("products", this.props.products);
+      this.setState({ loading: false, products: this.props.products });
+    }
   }
   render() {
     return (
       <Context.Provider value={this.state}>
-        {this.props.children}
+        <ProductsContext.Provider value={this.props.products}>
+          {this.props.children}
+        </ProductsContext.Provider>
       </Context.Provider>
     );
   }

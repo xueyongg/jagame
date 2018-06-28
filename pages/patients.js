@@ -56,7 +56,7 @@ export default class Patients extends Component {
                     </Head>
                     <PageHeader />
                     <Container>
-                      <Grid style={{ height: "600px" }} stackable>
+                      <Grid style={{ height: "800px" }} stackable>
                         <Grid.Row stretched>
                           <Grid.Column width={6}>
                             <Patients_list />
@@ -214,11 +214,13 @@ const Patient_display = activeItem => {
               <PatientForm />
             ) : (
               <ActiveUserContext.Consumer>
-                {activeUser => (
-                  <Patient
-                    patient={activeUser ? activeUser : { name: "alice" }}
-                  />
-                )}
+                {activeUser =>
+                  activeUser ? (
+                    <Patient patient={activeUser} />
+                  ) : (
+                    <PatientForm />
+                  )
+                }
               </ActiveUserContext.Consumer>
             )}
           </Segment>
