@@ -42,7 +42,6 @@ export default class Home extends Component {
     let response = axios({ method: "GET", url }).catch(e => {
       console.log("< Error in PRODUCT ENDPOINT", e);
     });
-    console.log(response);
     this.setState({ products: response ? response.data : {} });
   }
   state = { activeItem: "home" };
@@ -54,47 +53,70 @@ export default class Home extends Component {
           <title>Welcome Jaga Pro</title>
         </Head>
         <PageHeader />
-        <Container>
-          <Link href="/patients" passHref>
-            <Header as="h2" content="Status Overview" />
-          </Link>
+        <Context.Consumer>
+          {mainContext => {
+            if (mainContext) {
+              console.log("MainContext", mainContext);
+              const userData = mainContext.userData;
+              return (
+                <Container>
+                  <Link href="/patients" passHref>
+                    <Header as="h2">
+                      <Icon name="file outline" />
+                      <Header.Content>Status Overview</Header.Content>
+                    </Header>
+                  </Link>
 
-          <Segment.Group horizontal>
-            <Segment>
-              <Home_status />
-            </Segment>
-            <Segment>
-              <Statistic.Group>
-                <Statistic color="red">
-                  <Statistic.Value>27</Statistic.Value>
-                  <Statistic.Label>Pending</Statistic.Label>
-                </Statistic>
-                <Statistic color="green">
-                  <Statistic.Value>8'</Statistic.Value>
-                  <Statistic.Label>Closed</Statistic.Label>
-                </Statistic>
-              </Statistic.Group>
-            </Segment>
-          </Segment.Group>
-          <Link href="/patients" passHref>
-            <Header as="h2" content="Pending List" />
-          </Link>
-          <Segment>
-            <Home_pending_list />
-          </Segment>
-        </Container>
+                  <Segment.Group horizontal>
+                    <Segment>
+                      <Home_status data={mainContext} />
+                    </Segment>
+                    <Segment>
+                      <Statistic.Group>
+                        <Statistic color="red">
+                          <Statistic.Value>
+                            {userData.collections["pending"].length}
+                          </Statistic.Value>
+                          <Statistic.Label>Pending</Statistic.Label>
+                        </Statistic>
+                        <Statistic color="green">
+                          <Statistic.Value>
+                            {userData.collections["completed"].length}
+                          </Statistic.Value>
+                          <Statistic.Label>Completed</Statistic.Label>
+                        </Statistic>
+                      </Statistic.Group>
+                    </Segment>
+                  </Segment.Group>
+                  <Link href="/patients" passHref>
+                    <Header as="h2">
+                      <Icon name="user" />
+                      <Header.Content>Pending Patients</Header.Content>
+                    </Header>
+                  </Link>
+                  <Segment>
+                    <Home_pending_list />
+                  </Segment>
+                </Container>
+              );
+            }
+          }}
+        </Context.Consumer>
       </div>
     );
   }
 }
 
+/**
+ * Home_status: Displays out the overall statistics of the application for this particular cookie
+ */
 class Home_status extends Component {
   state = {
     chartData: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: getLastSevenDates(7, 7),
       datasets: [
         {
-          label: "My First dataset",
+          label: "Open",
           fillColor: "rgba(220,220,220,0.2)",
           strokeColor: "rgba(220,220,220,1)",
           pointColor: "rgba(220,220,220,1)",
@@ -104,7 +126,17 @@ class Home_status extends Component {
           data: [1, 2, 3, 4, 5, 6, 7]
         },
         {
-          label: "My Second dataset",
+          label: "Pending",
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(151,187,205,1)",
+          data: [2, 4, 3, 4, 5, 6, 7]
+        },
+        {
+          label: "Total",
           fillColor: "rgba(151,187,205,0.2)",
           strokeColor: "rgba(151,187,205,1)",
           pointColor: "rgba(151,187,205,1)",
@@ -128,6 +160,29 @@ class Home_status extends Component {
       }
     }
   };
+
+  getLastSevenDates() {
+    return [6, 5, 4, 3, 2, 1, 0].map(
+      num =>
+        num !== 0
+          ? moment()
+              .subtract(num, "d")
+              .format("ddd, DD MMM")
+          : "Today"
+    );
+  }
+
+  componentDidMount() {
+    this.setState({ ...this.state, userData: this.props.data });
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.data !== prevProps.data) {
+      this.setState({ userData: this.props.data });
+    }
+  }
+
+  getLength;
 
   render() {
     const { chartData, chartOptions } = this.state;
@@ -201,44 +256,6 @@ class Home_pending_list extends Component {
           }}
         </Context.Consumer>
       </div>
-    );
-  }
-}
-
-class Home_search extends Component {
-  eventLogger = (e, data) => {
-    console.log("Event: ", e);
-    console.log("Data: ", data);
-  };
-
-  render() {
-    const products = this.props.products;
-    console.log(products);
-    return (
-      <Grid>
-        <ProductsContext.Consumer>
-          {products => {
-            console.log(products);
-            return (
-              <Grid>
-                {products.map((product, i) => {
-                  return <DraggableProduct key={i} product={product} />;
-                })}
-              </Grid>
-            );
-          }}
-        </ProductsContext.Consumer>
-      </Grid>
-    );
-  }
-}
-
-class Home_bookmark extends Component {
-  render() {
-    return (
-      <Segment>
-        <Header as="h2" content="Bookmarked Products" />
-      </Segment>
     );
   }
 }
