@@ -6,7 +6,8 @@ import {
   Segment,
   Card,
   Icon,
-  Image,Grid,
+  Image,
+  Grid,
   List,
   Header
 } from "semantic-ui-react";
@@ -14,7 +15,9 @@ import Head from "next/head";
 import Link from "next/link";
 import PageHeader from "./components/header";
 import { Context } from "./components/context";
-import Product from './components/product';
+import { ProductsContext } from "./index";
+import DraggableProduct from "./components/draggableProduct";
+const LineChart = require("react-chartjs").Line;
 
 export default class Home extends Component {
   static async getInitialProps() {
@@ -30,16 +33,73 @@ export default class Home extends Component {
         </Head>
         <PageHeader />
         <Container>
+          <Link href="/patients" passHref>
+            <Header as="h2" content="Status Overview" />
+          </Link>
           <Segment>
-            <Link href="/patients" passHref>
-              <Header as="h2" content="Pending List" />
-            </Link>
+            <Home_status />
+          </Segment>
+          <Link href="/patients" passHref>
+            <Header as="h2" content="Pending List" />
+          </Link>
+          <Segment>
             <Home_pending_list />
           </Segment>
-          <Home_bookmark />
-          <Home_search />
         </Container>
       </div>
+    );
+  }
+}
+
+class Home_status extends Component {
+  state = {
+    chartData: {
+      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      datasets: [
+        {
+          label: "My First dataset",
+          fillColor: "rgba(220,220,220,0.2)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [1,2,3,4,5,6,7]
+        },{
+          label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+          data: [2,4,3,4,5,6,7]
+        }
+      ]
+    },
+    chartOptions: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true
+            }
+          },
+          { stacked: true }
+        ]
+      }
+    }
+  };
+
+  render() {
+    const { chartData, chartOptions } = this.state;
+    return (
+      <LineChart
+        data={chartData}
+        options={chartOptions}
+        width="700"
+        height="250"
+      />
     );
   }
 }
@@ -51,7 +111,6 @@ class Home_pending_list extends Component {
       <div>
         <Context.Consumer>
           {value => {
-            console.log(value);
             let pending = value ? value.userData.collections.pending : [];
             <List horizontal>
               {/* {[1].map((pending, index) => {
@@ -93,23 +152,39 @@ class Home_pending_list extends Component {
   }
 }
 
+class Home_search extends Component {
+  eventLogger = (e, data) => {
+    console.log("Event: ", e);
+    console.log("Data: ", data);
+  };
+
+  render() {
+    const products = this.props.products;
+    console.log(products);
+    return (
+      <Grid>
+        <ProductsContext.Consumer>
+          {products => {
+            console.log(products);
+            return (
+              <Grid>
+                {products.map((product, i) => {
+                  return <DraggableProduct key={i} product={product} />;
+                })}
+              </Grid>
+            );
+          }}
+        </ProductsContext.Consumer>
+      </Grid>
+    );
+  }
+}
+
 class Home_bookmark extends Component {
   render() {
     return (
       <Segment>
         <Header as="h2" content="Bookmarked Products" />
-      </Segment>
-    );
-  }
-}
-
-class Home_search extends Component {
-  render() {
-    return (
-      <Segment>
-        <Grid>
-          <Product/>
-        </Grid>
       </Segment>
     );
   }
