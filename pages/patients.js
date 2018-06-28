@@ -88,6 +88,8 @@ class Patients_list extends Component {
       <ActivePageContext.Consumer>
         {activePageContext => {
           const { activeItem, updateTab } = activePageContext;
+          const activeCollection =
+            activeItem !== "new" ? activeItem : "pending";
           return (
             <Segment>
               <Menu attached="top" tabular>
@@ -132,10 +134,10 @@ class Patients_list extends Component {
                       if (context) {
                         let userData = context.userData;
                         if (
-                          userData.collections[activeItem] &&
-                          userData.collections[activeItem].length !== 0
+                          userData.collections[activeCollection] &&
+                          userData.collections[activeCollection].length !== 0
                         )
-                          return userData.collections[activeItem].map(
+                          return userData.collections[activeCollection].map(
                             (collection, i) => {
                               console.log("collection", collection);
                               const {
@@ -162,7 +164,10 @@ class Patients_list extends Component {
                                       {first_name} {last_name}
                                     </List.Header>
                                     <List.Description as="a">
-                                      Updated {time_stamp.from(moment())}
+                                      Updated{" "}
+                                      {typeof time_stamp === "string"
+                                        ? moment(time_stamp).from(moment())
+                                        : time_stamp.from(moment())}
                                     </List.Description>
                                   </List.Content>
                                 </List.Item>
@@ -173,9 +178,7 @@ class Patients_list extends Component {
                           return (
                             <Header
                               as="h4"
-                              content={`No ${
-                                activeItem !== "new" ? activeItem : "pending"
-                              } users`}
+                              content={`No ${activeCollection} users`}
                               textAlign="center"
                             />
                           );

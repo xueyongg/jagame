@@ -45,7 +45,8 @@ export default class PatientForm extends Component {
       phone,
       description,
       status: "pending",
-      time_stamp: context.moment()
+      time_stamp: context.moment(),
+      collection: []
     });
     context.updateData(context.userData);
     activePageContext.updateTab("pending");
