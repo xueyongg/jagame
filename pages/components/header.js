@@ -34,9 +34,6 @@ export default class PageHeader extends Component {
 
     return (
       <div>
-        <Head>
-          <title>Home</title>
-        </Head>
         <Menu secondary stackable style={menuStyle}>
           <Link href={{ pathname: "/index" }} passHref>
             <Menu.Item>

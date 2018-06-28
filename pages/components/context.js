@@ -5,14 +5,8 @@ import axios from "axios";
 export const Context = React.createContext();
 export const ProductsContext = React.createContext();
 export default class ContextProvider extends Component {
-  static async getInitialProps() {
-    const url =
-      "https://82v9umvzoj.execute-api.ap-southeast-1.amazonaws.com/dev/products";
-    let response = await axios({ method: "GET", url }).catch(e => {
-      throw e;
-    });
-    return { products: response ? response.data : null };
-  }
+  static async getInitialProps() {}
+
   state = {
     sessionId: "",
     userData: {
@@ -60,18 +54,19 @@ export default class ContextProvider extends Component {
     });
 
     // Products set up
-    if (
-      window.localStorage &&
-      window.localStorage.getItem("products") === null &&
-      this.props.products !== null
-    ) {
+
+    if (window.localStorage && this.props.products !== null) {
       console.log("< Context products was updated with: ", this.props.products);
       window.localStorage.setItem("products", this.props.products);
       this.setState({ loading: false, products: this.props.products });
     }
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.products !== this.state.products) {
+      this.setState({ products: this.props.products });
+    }
+  }
   render() {
     return (
       <Context.Provider value={this.state}>

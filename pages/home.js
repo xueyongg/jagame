@@ -10,7 +10,8 @@ import {
   Grid,
   List,
   Header,
-  Statistic
+  Statistic,
+  Button
 } from "semantic-ui-react";
 import Head from "next/head";
 import Link from "next/link";
@@ -19,10 +20,30 @@ import { Context } from "./components/context";
 import { ProductsContext } from "./components/context";
 import DraggableProduct from "./components/draggableProduct";
 const LineChart = require("react-chartjs").Line;
+import axios from "axios";
+const moment = require("moment");
 
+/**
+ * List of components:
+ *
+ * Home: the main home component
+ * Home_status: the component handling the statistics of the user at this moment
+ * Home_pending_list: the component displaying the existing pending list of collections
+ */
 export default class Home extends Component {
   static async getInitialProps() {
     // Will consume context for this particular session
+  }
+
+  componentDidMount() {
+    const url =
+      "https://82v9umvzoj.execute-api.ap-southeast-1.amazonaws.com/dev/products";
+
+    let response = axios({ method: "GET", url }).catch(e => {
+      console.log("< Error in PRODUCT ENDPOINT", e);
+    });
+    console.log(response);
+    this.setState({ products: response ? response.data : {} });
   }
   state = { activeItem: "home" };
 
@@ -129,41 +150,56 @@ class Home_pending_list extends Component {
         <Context.Consumer>
           {value => {
             let pending = value ? value.userData.collections.pending : [];
-            <List horizontal>
-              {/* {[1].map((pending, index) => {
-                return ( */}
-              <List.Item key={1}>
-                <Card color="pink">
-                  <Image src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg" />
-                  <Card.Content>
-                    <Card.Header>Daniel</Card.Header>
-                    <Card.Meta>Last updated 2 hours ago</Card.Meta>
-                    <Card.Description>Daniel's conditions</Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <Link
-                      href={{
-                        pathname: "/patients",
-                        query: { name: "daniel" }
-                      }}
-                      passHref
-                    >
-                      <a>
-                        <Icon name="user" />
-                        View more
-                      </a>
-                    </Link>
-                  </Card.Content>
+
+            return (
+              <Card.Group>
+                {pending.map((item, index) => {
+                  console.log("Pending", item);
+                  const {
+                    first_name,
+                    last_name,
+                    gender,
+                    description,
+                    phone,
+                    status,
+                    time_stamp,
+                    collection
+                  } = item;
+                  return (
+                    <Card key={index}>
+                      <Card.Content>
+                        <Card.Header>
+                          {first_name + " " + last_name}
+                        </Card.Header>
+                        <Card.Meta>{gender}</Card.Meta>
+                        <Card.Description>{description}</Card.Description>
+                      </Card.Content>
+                      <Card.Content extra>
+                        <div className="ui two buttons">
+                          <Button basic color="green">
+                            View More
+                          </Button>
+                        </div>
+                      </Card.Content>
+                    </Card>
+                  );
+                })}
+                <Card basic style={{ border: 0 }}>
+                  <Segment basic vertical>
+                    <Icon
+                      name="plus"
+                      link
+                      href=""
+                      size="massive"
+                      color="pink"
+                      alt=""
+                    />
+                  </Segment>
                 </Card>
-              </List.Item>
-              {/* ); */}
-              {/* })} */}
-            </List>;
+              </Card.Group>
+            );
           }}
         </Context.Consumer>
-        <Segment basic vertical>
-          <Icon name="plus" link href="" size="massive" color="pink" alt="" />
-        </Segment>
       </div>
     );
   }

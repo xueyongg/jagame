@@ -62,7 +62,7 @@ export default class Patients extends Component {
                 <div>
                   <ActiveUserContext.Provider value={this.state.activeUser}>
                     <Head>
-                      <title>Patients</title>
+                      <title>Patients Management</title>
                     </Head>
                     <PageHeader />
                     <Container>
