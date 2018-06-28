@@ -58,7 +58,7 @@ export default class PatientForm extends Component {
       { key: "f", text: "Female", value: "female" }
     ];
     return (
-      <div>
+      <Segment basic>
         <Header as="h1" content="New Patient" />
         <Context.Consumer>
           {context => {
@@ -125,7 +125,7 @@ export default class PatientForm extends Component {
             );
           }}
         </Context.Consumer>
-      </div>
+      </Segment>
     );
   }
 }

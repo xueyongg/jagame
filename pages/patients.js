@@ -182,17 +182,6 @@ class Patients_list extends Component {
                       }
                     }}
                   </Context.Consumer>
-
-                  {/* <Button
-                    icon
-                    fluid
-                    onClick={() => {
-                      updateTab("new");
-                    }}
-                  >
-                    <Icon name="plus" />
-                    New patient
-                  </Button> */}
                 </List>
               </Segment>
             </Segment>
