@@ -18,6 +18,7 @@ import {
   Divider
 } from "semantic-ui-react";
 import Search from "../components/search";
+import { productSum } from "../../utility/sum";
 
 export default class Patient extends Component {
   static async getInitialProps({ patient }) {
@@ -30,7 +31,8 @@ export default class Patient extends Component {
       last_name,
       gender,
       phone,
-      description
+      description,
+      collection
     } = this.props.patient;
     return (
       <div>
@@ -38,7 +40,9 @@ export default class Patient extends Component {
           <Grid.Row>
             <Grid.Column>
               <Segment basic>
-                <Header as="h2" content={first_name} />
+                <Header as="h2">
+                  {first_name} {last_name}
+                </Header>
                 <Message>
                   {/* <Message.Header>Changes in Service</Message.Header> */}
                   <p>{description ? description : "No description"}</p>
@@ -56,7 +60,7 @@ export default class Patient extends Component {
           <Divider />
           <Grid.Row>
             <Grid.Column>
-              <Patient_selected_items />
+              <Patient_selected_items selectedProducts={collection} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
@@ -73,26 +77,27 @@ export default class Patient extends Component {
   }
 }
 
-class Patient_selected_items extends Component {
-  render() {
-    return (
-      <div>
-        <Grid.Row>
-          <Header as="h3" icon>
-            Selected
-            <Label as="a">$10.00</Label>
-          </Header>
-        </Grid.Row>
+const Patient_selected_items = ({ selectedProducts }) => {
+  return (
+    <div>
+      <Grid.Row>
+        <Header as="h3" icon>
+          Selected {selectedProducts.length} product{selectedProducts.length !==
+          0
+            ? "s"
+            : ""}
+          <Label as="a">${productSum(selectedProducts)}</Label>
+        </Header>
+      </Grid.Row>
 
-        <Grid.Row>
-          <Grid.Column>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              size="small"
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </div>
-    );
-  }
-}
+      <Grid.Row>
+        <Grid.Column>
+          <Image
+            src="https://react.semantic-ui.com/images/wireframe/image.png"
+            size="small"
+          />
+        </Grid.Column>
+      </Grid.Row>
+    </div>
+  );
+};
