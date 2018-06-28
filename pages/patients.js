@@ -32,7 +32,9 @@ export default class Patients extends Component {
     },
     activeUser: {},
     updateUser: user => {
-      this.setState({ activeUser: user });
+      if (user !== this.state.activeUser) {
+        this.setState({ activeUser: user });
+      }
     }
   };
 
@@ -48,9 +50,10 @@ export default class Patients extends Component {
                     ? this.state.activeItem
                     : "pending"
                 ];
+              this.state.updateUser(chosenCollections[0]);
               return (
                 <div>
-                  <ActiveUserContext.Provider value={chosenCollections[0]}>
+                  <ActiveUserContext.Provider value={this.state.activeUser}>
                     <Head>
                       <title>Patients</title>
                     </Head>
@@ -59,7 +62,14 @@ export default class Patients extends Component {
                       <Grid style={{ height: "800px" }} stackable>
                         <Grid.Row stretched>
                           <Grid.Column width={6}>
-                            <Patients_list />
+                            <Patients_list
+                              pending={
+                                mainContext.userData.collections["pending"]
+                              }
+                              completed={
+                                mainContext.userData.collections["completed"]
+                              }
+                            />
                           </Grid.Column>
                           <Grid.Column width={10}>
                             <Patient_display />
@@ -101,7 +111,7 @@ class Patients_list extends Component {
                   }}
                 >
                   Pending
-                  <Label color="pink">{0}</Label>
+                  <Label color="pink">{this.props.pending.length}</Label>
                 </Menu.Item>
                 <Menu.Item
                   name="completed"
@@ -109,7 +119,7 @@ class Patients_list extends Component {
                   onClick={() => updateTab("completed")}
                 >
                   Completed
-                  <Label color="pink">{0}</Label>
+                  <Label color="pink">{this.props.completed.length}</Label>
                 </Menu.Item>
                 <Menu.Menu position="right">
                   <Menu.Item>

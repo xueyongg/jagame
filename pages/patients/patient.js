@@ -78,26 +78,30 @@ export default class Patient extends Component {
 }
 
 const Patient_selected_items = ({ selectedProducts }) => {
-  return (
-    <div>
-      <Grid.Row>
-        <Header as="h3" icon>
-          Selected {selectedProducts.length} product{selectedProducts.length !==
-          0
-            ? "s"
-            : ""}
-          <Label as="a">${productSum(selectedProducts)}</Label>
-        </Header>
-      </Grid.Row>
+  if (selectedProducts)
+    return (
+      <div>
+        <Grid.Row>
+          <Header as="h3" icon>
+            Selected {selectedProducts.length} product{selectedProducts.length !==
+            0
+              ? "s"
+              : ""}
+            <Label as="a">${productSum(selectedProducts)}</Label>
+          </Header>
+        </Grid.Row>
 
-      <Grid.Row>
-        <Grid.Column>
-          <Image
-            src="https://react.semantic-ui.com/images/wireframe/image.png"
-            size="small"
-          />
-        </Grid.Column>
-      </Grid.Row>
-    </div>
-  );
+        <Grid.Row>
+          <Grid.Column>
+            <Image
+              src="https://react.semantic-ui.com/images/wireframe/image.png"
+              size="small"
+            />
+          </Grid.Column>
+        </Grid.Row>
+      </div>
+    );
+  else {
+    return <Segment loading />;
+  }
 };
