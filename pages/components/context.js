@@ -23,8 +23,12 @@ export default class ContextProvider extends Component {
       bookmarkedProducts: []
     },
     updateData: data => {
-      if (this.sessionId) {
-        window.localStorage.setItem(sessionId, data);
+      if (this.state.sessionId) {
+        console.log(
+          "Updating localStorage with Session Id: " + this.sessionId,
+          data
+        );
+        window.localStorage.setItem(this.state.sessionId, data);
         console.log("Window localStorage", window.localStorage);
         this.setState({ userData: data });
       }
@@ -40,7 +44,7 @@ export default class ContextProvider extends Component {
     let sessionId = window.document.cookie;
     let userData = window.localStorage.getItem(sessionId);
     console.log("< localStorage: ", window.localStorage);
-  
+
     this.setState({
       sessionId,
       userData: userData
@@ -57,16 +61,16 @@ export default class ContextProvider extends Component {
     // Products set up
     if (
       window.localStorage &&
-      window.localStorage.getItem("products") === null
+      window.localStorage.getItem("products") === null &&
+      this.props.products !== null
     ) {
+      console.log("< Context products was updated with: ", this.props.products);
       window.localStorage.setItem("products", this.props.products);
       this.setState({ loading: false, products: this.props.products });
     }
   }
 
-  componentDidUpdate(){
-    
-  }
+  componentDidUpdate() {}
   render() {
     return (
       <Context.Provider value={this.state}>
