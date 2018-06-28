@@ -153,7 +153,7 @@ class Patients_list extends Component {
                                   onClick={() => contex}
                                 >
                                   <List.Icon
-                                    name="github"
+                                    name={gender}
                                     size="large"
                                     verticalAlign="middle"
                                   />

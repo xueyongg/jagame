@@ -9,7 +9,8 @@ import {
   Image,
   Grid,
   List,
-  Header
+  Header,
+  Statistic
 } from "semantic-ui-react";
 import Head from "next/head";
 import Link from "next/link";
@@ -36,9 +37,24 @@ export default class Home extends Component {
           <Link href="/patients" passHref>
             <Header as="h2" content="Status Overview" />
           </Link>
-          <Segment>
-            <Home_status />
-          </Segment>
+
+          <Segment.Group horizontal>
+            <Segment>
+              <Home_status />
+            </Segment>
+            <Segment>
+              <Statistic.Group>
+                <Statistic color="red">
+                  <Statistic.Value>27</Statistic.Value>
+                  <Statistic.Label>Pending</Statistic.Label>
+                </Statistic>
+                <Statistic color="green">
+                  <Statistic.Value>8'</Statistic.Value>
+                  <Statistic.Label>Closed</Statistic.Label>
+                </Statistic>
+              </Statistic.Group>
+            </Segment>
+          </Segment.Group>
           <Link href="/patients" passHref>
             <Header as="h2" content="Pending List" />
           </Link>

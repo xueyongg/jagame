@@ -11,7 +11,6 @@ export default class ContextProvider extends Component {
     let response = await axios({ method: "GET", url }).catch(e => {
       throw e;
     });
-    console.log(response);
     return { products: response ? response.data : null };
   }
   state = {
@@ -41,6 +40,7 @@ export default class ContextProvider extends Component {
     let sessionId = window.document.cookie;
     let userData = window.localStorage.getItem(sessionId);
     console.log("< localStorage: ", window.localStorage);
+  
     this.setState({
       sessionId,
       userData: userData
@@ -62,6 +62,10 @@ export default class ContextProvider extends Component {
       window.localStorage.setItem("products", this.props.products);
       this.setState({ loading: false, products: this.props.products });
     }
+  }
+
+  componentDidUpdate(){
+    
   }
   render() {
     return (

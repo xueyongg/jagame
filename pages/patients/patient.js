@@ -14,7 +14,7 @@ import {
   Statistic,
   Label,
   Form,
-  Message
+  Message, Divider
 } from "semantic-ui-react";
 import Search from "../components/search";
 
@@ -37,22 +37,23 @@ export default class Patient extends Component {
           <Grid.Row>
             <Grid.Column>
               <Header as="h2" content={first_name} />
-              <Segment clearing>
+              <Segment clearing basic>
                 <Message>
                   {/* <Message.Header>Changes in Service</Message.Header> */}
                   <p>{description ? description : "No description"}</p>
                 </Message>
 
-                <Button floated="right" icon>
+                <Button  icon>
                   <Icon name="github" />
                   Download
                 </Button>
-                <Button floated="right" icon>
+                <Button icon>
                   <Icon name="github" /> Check Out
                 </Button>
               </Segment>
             </Grid.Column>
           </Grid.Row>
+          <Divider />
           <Grid.Row>
             <Grid.Column>
               <Patient_selected_items />
