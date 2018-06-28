@@ -31,7 +31,6 @@ export default class ContextProvider extends Component {
     let sessionId = window.document.cookie;
     let userData = window.localStorage.getItem(sessionId);
     console.log("< localStorage: ", window.localStorage);
-    console.log("< sessionId: ", sessionId);
     this.setState({
       sessionId,
       userData: userData

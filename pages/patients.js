@@ -16,11 +16,10 @@ import {
   Form
 } from "semantic-ui-react";
 import Head from "next/head";
-import Link from "next/link";
 import PageHeader from "./components/header";
-import Patient from "./components/patient";
-import PatientForm from "./components/patientForm";
+import PatientForm from "./patients/patientForm";
 import { Context } from "./components/context";
+import Patient from "./patients/patient";
 const moment = require("moment");
 export const ActivePageContext = React.createContext();
 export const ActiveUserContext = React.createContext();
@@ -148,7 +147,11 @@ class Patients_list extends Component {
                                 time_stamp
                               } = collection;
                               return (
-                                <List.Item active key={i}>
+                                <List.Item
+                                  active
+                                  key={i}
+                                  onClick={() => contex}
+                                >
                                   <List.Icon
                                     name="github"
                                     size="large"

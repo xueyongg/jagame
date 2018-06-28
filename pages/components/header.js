@@ -26,15 +26,17 @@ export default class PageHeader extends Component {
               />
             </Menu.Item>
           </Link>
-          <Link href={{ pathname: "/" }} passHref>
+          <Link href={{ pathname: "/home" }} passHref>
             <Menu.Item>Home</Menu.Item>
           </Link>
           <Link href={{ pathname: "/patients" }} passHref>
-            <Menu.Item>Patients</Menu.Item>
+            <Menu.Item>Manage patients</Menu.Item>
           </Link>
           <Context.Consumer>
             {context => {
-              return <Menu.Item>I'm {context ? context.sessionId : ""}</Menu.Item>;
+              return (
+                <Menu.Item>I'm {context ? context.sessionId : ""}</Menu.Item>
+              );
             }}
           </Context.Consumer>
           <Menu.Menu position="right">

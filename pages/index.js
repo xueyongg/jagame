@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Container } from "semantic-ui-react";
 import Head from "next/head";
 import Home from "./home";
+
 import axios from "axios";
+export const ProductsContext = React.createContext();
+
 export default class Index extends Component {
   static async getInitialProps() {
     const url =
@@ -10,13 +13,19 @@ export default class Index extends Component {
     let response = await axios({ method: "GET", url }).catch(e => {
       throw e;
     });
-    return { res: response ? response.data : null };
+    return { products: response ? response.data : null };
   }
 
   state = { loading: true };
 
   componentDidMount() {
-    this.setState({ loading: false });
+    if (
+      window.localStorage &&
+      window.localStorage.getItem("products") === null
+    ) {
+      window.localStorage.setItem("products", this.props.products);
+      this.setState({ loading: false, products: this.props.products });
+    }
   }
 
   render() {
@@ -26,7 +35,9 @@ export default class Index extends Component {
           <title>Jaga Me pls</title>
         </Head>
         <Container>
-          <Home />
+          <ProductsContext.Provider value={this.props.products}>
+            <Home />
+          </ProductsContext.Provider>
         </Container>
       </div>
     );

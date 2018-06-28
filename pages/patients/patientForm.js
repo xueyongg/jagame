@@ -15,8 +15,8 @@ import {
   Label,
   Form
 } from "semantic-ui-react";
-import { Context } from "./context";
 import { ActivePageContext } from "../patients";
+import { Context } from "../components/context";
 
 export default class PatientForm extends Component {
   static async getInitialProps({ patient }) {

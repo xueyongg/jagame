@@ -11,23 +11,25 @@ export default class Product extends Component {
   }
 
   render() {
-    const { product } = this.state;
+    console.log(this.props.product);
+    let product = this.props.product;
+    let image = product.images[0];
     return (
       <Card>
-        <Image src="/images/avatar/large/matthew.png" />
+        <Image src={image.src} alt={image.alt} />
         <Card.Content>
-          <Card.Header>Matthew</Card.Header>
+          <Card.Header>{product.name}</Card.Header>
           <Card.Meta>
-            <span className="date">Joined in 2015</span>
+            <span className="date">{product.in_stock? "Available": "Out of Stock"}</span>
           </Card.Meta>
           <Card.Description>
-            Matthew is a musician living in Nashville.
+            ${Number(product.price).toFixed(2)}
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <a>
-            <Icon name="user" />
-            22 Friends
+            <Icon name="plus" />
+            Add to cart
           </a>
         </Card.Content>
       </Card>
