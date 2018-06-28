@@ -24,6 +24,13 @@ const moment = require("moment");
 export const ActivePageContext = React.createContext();
 export const ActiveUserContext = React.createContext();
 
+/**
+ * List of components:
+ *
+ * Patients: the main overall patients management component
+ * Patient_list: the component containing the list of patients currently registered
+ * Patient_display: the component displaying chosen users
+ */
 export default class Patients extends Component {
   state = {
     activeItem: "pending",
