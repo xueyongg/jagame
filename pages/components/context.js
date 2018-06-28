@@ -28,7 +28,7 @@ export default class ContextProvider extends Component {
           "Updating localStorage with Session Id: " + this.sessionId,
           data
         );
-        window.localStorage.setItem(this.state.sessionId, data);
+        window.localStorage.setItem(this.state.sessionId, JSON.stringify(data));
         console.log("Window localStorage", window.localStorage);
         this.setState({ userData: data });
       }
@@ -43,6 +43,7 @@ export default class ContextProvider extends Component {
   componentDidMount() {
     let sessionId = window.document.cookie;
     let userData = window.localStorage.getItem(sessionId);
+    userData = JSON.parse(userData);
     console.log("< localStorage: ", window.localStorage);
 
     this.setState({
