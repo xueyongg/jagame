@@ -113,7 +113,7 @@ export default class Home extends Component {
 class Home_status extends Component {
   state = {
     chartData: {
-      labels: getLastSevenDates(7, 7),
+      labels: this.getLastSevenDates(7),
       datasets: [
         {
           label: "Open",
@@ -164,15 +164,25 @@ class Home_status extends Component {
   /**
    * params:
    */
-  getLastSevenDates() {
-    return [6, 5, 4, 3, 2, 1, 0].map(
-      num =>
-        num !== 0
-          ? moment()
-              .subtract(num, "d")
-              .format("ddd, DD MMM")
-          : "Today"
-    );
+  getLastSevenDates(daysBefore) {
+    return Array(daysBefore + 1)
+      .fill()
+      .map((item, index) => index)
+      .reverse()
+      .map(
+        num =>
+          num !== 0
+            ? moment()
+                .subtract(num, "d")
+                .format("DD MMM")
+            : "Today"
+      );
+  }
+
+  fillRange(start, end) {
+    return Array(end - start + 1)
+      .fill()
+      .map((item, index) => start + index).reverse;
   }
 
   componentDidMount() {
@@ -227,7 +237,9 @@ class Home_pending_list extends Component {
                     <Card key={index}>
                       <Card.Content>
                         <Card.Header>
-                          {first_name + " " + last_name}
+                          {_.capitalize(first_name) +
+                            " " +
+                            _.capitalize(last_name)}
                         </Card.Header>
                         <Card.Meta>{gender}</Card.Meta>
                         <Card.Description>{description}</Card.Description>
