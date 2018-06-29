@@ -88,12 +88,14 @@ export default class Home extends Component {
                       </Statistic.Group>
                     </Segment>
                   </Segment.Group>
-                  <Link href="/patients" passHref>
-                    <Header as="h2">
-                      <Icon name="user" />
+
+                  <Header as="h2">
+                    <Icon name="plus" color="red"/>
+                    <Link href="/patients" passHref>
                       <Header.Content>Pending Patients</Header.Content>
-                    </Header>
-                  </Link>
+                    </Link>
+                    
+                  </Header>
                   <Segment>
                     <Home_pending_list />
                   </Segment>
@@ -264,18 +266,7 @@ class Home_pending_list extends Component {
                       </Card>
                     );
                   })}
-                  <Card style={{ border: 0 }}>
-                    <Segment basic vertical>
-                      <Icon
-                        name="plus"
-                        link
-                        href=""
-                        size="massive"
-                        color="pink"
-                        alt=""
-                      />
-                    </Segment>
-                  </Card>
+                
                 </Card.Group>
               );
           }}
