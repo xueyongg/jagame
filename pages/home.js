@@ -93,7 +93,7 @@ export default class Home extends Component {
                   <Header as="h2">
                     <Icon name="plus" color="red" />
                     <Link href="/patients" passHref>
-                      <Header.Content>Pending Patients</Header.Content>
+                      <Header.Content style={{color: "black"}}>Pending Patients</Header.Content>
                     </Link>
                   </Header>
                   <Segment>
@@ -114,11 +114,14 @@ export default class Home extends Component {
  */
 class Home_status extends Component {
   state = {
+    pendingCounter: [1, 2, 3, 4, 5, 6, 7],
+    completedCounter: [2, 4, 3, 4, 5, 6, 7],
+    totalCounter: [2, 4, 3, 4, 5, 6, 7],
     chartData: {
       labels: this.getLastSevenDates(7),
       datasets: [
         {
-          label: "Open",
+          label: "Pending",
           fillColor: "rgba(220,220,220,0.2)",
           strokeColor: "rgba(220,220,220,1)",
           pointColor: "rgba(220,220,220,1)",
@@ -128,7 +131,7 @@ class Home_status extends Component {
           data: [1, 2, 3, 4, 5, 6, 7]
         },
         {
-          label: "Pending",
+          label: "Completed",
           fillColor: "rgba(151,187,205,0.2)",
           strokeColor: "rgba(151,187,205,1)",
           pointColor: "rgba(151,187,205,1)",
@@ -196,8 +199,6 @@ class Home_status extends Component {
       this.setState({ userData: this.props.data });
     }
   }
-
-  getLength;
 
   render() {
     const { chartData, chartOptions } = this.state;

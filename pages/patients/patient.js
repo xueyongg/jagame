@@ -62,6 +62,7 @@ export default class Patient extends Component {
                     <CheckoutConfirmation
                       patient={this.props.patient}
                       totalAmount={total}
+                      productCounter={countProductsByUnique(collection)}
                     >
                       <Button
                         as="div"
@@ -84,11 +85,11 @@ export default class Patient extends Component {
                 <Popup
                   trigger={
                     <Button color="blue" floated="right">
-                      <Icon name="download" />
-                      Download
+                      <Icon name="edit outline" />
+                      Edit User
                     </Button>
                   }
-                  content="Download list as CSV file"
+                  content="Edit user details"
                 />
               </Segment>
             </Grid.Column>
