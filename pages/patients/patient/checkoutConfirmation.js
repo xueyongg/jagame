@@ -21,13 +21,30 @@ import {
   Table
 } from "semantic-ui-react";
 import { Patient_selected_items } from "../patient";
+import { axios } from "axios";
+import { createAndDownloadPDF } from "../../../utility/pdf";
 
 export default class CheckoutConfirmation extends Component {
   static async getInitialProps({}) {
     return {};
   }
-  state = { open: true };
+  state = { open: false };
   close = () => this.setState({ open: false });
+
+  handleConfirmation() {
+    this.setState({ loading: true });
+    const url = "https://github.com/fredsted/webhook.site";
+
+    let response = axios(url, {
+      type: "POST"
+    })
+      .then(res => {
+        this.setState({ loading: false, open: false });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 
   render() {
     let patient = this.props.patient;
@@ -46,7 +63,7 @@ export default class CheckoutConfirmation extends Component {
       <Modal trigger={this.props.children} closeIcon>
         <Modal.Header>
           {first_name} {last_name}{" "}
-          {gender === "male" ? <Icon name="mars" /> : <Icon name="venus" /> }
+          {gender === "male" ? <Icon name="mars" /> : <Icon name="venus" />}
         </Modal.Header>
         <Modal.Content scrolling>
           {/* <Image size="medium" src="/images/wireframe/image.png" wrapped /> */}
@@ -92,14 +109,14 @@ export default class CheckoutConfirmation extends Component {
         <Modal.Actions>
           <Popup
             trigger={
-              <Button inverted color="blue">
+              <Button inverted color="blue" onClick={()=>{createAndDownloadPDF({})}}>
                 <Icon name="download" />
                 Download
               </Button>
             }
             content="Download bill as PDF file"
           />
-          <Popup
+          {/* <Popup
             trigger={
               <Button
                 color="red"
@@ -112,10 +129,17 @@ export default class CheckoutConfirmation extends Component {
               </Button>
             }
             content="Close confirmation"
-          />
+          /> */}
           <Popup
             trigger={
-              <Button color="green" inverted>
+              <Button
+                color="green"
+                inverted
+                onClick={() => {
+                  this.handleConfirmation();
+                }}
+                loading={this.state.loading}
+              >
                 <Icon name="checkmark" /> Confirm
               </Button>
             }
