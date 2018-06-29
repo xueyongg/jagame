@@ -33,10 +33,19 @@ export default class ContextProvider extends Component {
     },
     activeUser: {},
     updateUser: user => {
-      console.log("user", user);
-      console.log("this.state.activeUser", this.state.activeUser);
       if (user !== this.state.activeUser) {
         this.setState({ activeUser: user });
+      }
+    },
+    updateActiveUserData: (newProduct, action) => {
+      let activeUser = this.state.activeUser;
+      if (activeUser && activeUser.status === "pending" && newProduct) {
+        if (action === "add") activeUser.collection.push(newProduct);
+        else if (action === "delete") {
+          // activeUser.userData.collection.push(newProduct);
+        }
+        this.setState({ activeUser });
+        console.log("updated!");
       }
     }
   };

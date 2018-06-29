@@ -20,7 +20,7 @@ import {
 import { ProductsContext } from "./context";
 
 import DraggableProduct from "./draggableProduct";
-
+import Product from "./draggableProduct/product";
 const data = require("../../static/data.json");
 
 export default class SearchComponent extends Component {
@@ -33,10 +33,11 @@ export default class SearchComponent extends Component {
   }
 
   resetComponent = () =>
-    this.setState({ isLoading: false, results: [],rawResults:[], value: "" });
+    this.setState({ isLoading: false, results: [], rawResults: [], value: "" });
 
   state = {
-    results: [],rawResults:[],
+    results: [],
+    rawResults: [],
     isLoading: false,
     value: ""
   };
@@ -70,9 +71,9 @@ export default class SearchComponent extends Component {
   handleResultSelect = (e, { result }) => this.setState({ value: result.name });
 
   render() {
-    const { isLoading, value, results } = this.state;
+    const { isLoading, value, results, rawResults } = this.state;
 
-    let products = this.state.rawResults;
+    let products = rawResults.length === 0 ? data : rawResults;
 
     return (
       <div>
@@ -88,11 +89,11 @@ export default class SearchComponent extends Component {
         />
 
         <Segment basic>
-          <Grid>
+          <List bulleted relaxed>
             {products.map((product, i) => {
-              return <DraggableProduct key={i} product={product} />;
+              if (i < 10) return <Product key={i} product={product} />; // Only display a maximum of 10 products at any one time
             })}
-          </Grid>
+          </List>
         </Segment>
       </div>
     );

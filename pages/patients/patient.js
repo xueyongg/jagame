@@ -107,7 +107,8 @@ export default class Patient extends Component {
 }
 
 const Patient_selected_items = ({ selectedProducts }) => {
-  if (selectedProducts)
+  if (selectedProducts) {
+    console.log("selectedProducts: ", selectedProducts);
     return (
       <div>
         <Grid.Row>
@@ -129,7 +130,7 @@ const Patient_selected_items = ({ selectedProducts }) => {
         </Grid.Row>
       </div>
     );
-  else {
+  } else {
     return <Segment loading />;
   }
 };
