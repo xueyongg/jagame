@@ -71,8 +71,9 @@ export default class Home extends Component {
                     <Segment>
                       <Home_status data={mainContext} />
                     </Segment>
-                    <Segment>
-                      <Statistic.Group>
+                    <Segment textAlign="center">
+                      <Header as="h2" content="Collection Status" />
+                      <Statistic.Group widths="two">
                         <Statistic color="red">
                           <Statistic.Value>
                             {userData.collections["pending"].length}
