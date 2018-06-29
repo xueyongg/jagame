@@ -96,8 +96,11 @@ class Patients_list extends Component {
       <ActivePageContext.Consumer>
         {activePageContext => {
           const { activeItem, updateTab } = activePageContext;
+          console.log("activeItem", activeItem);
           const activeCollection =
-            activeItem !== "new" ? activeItem : "pending";
+            activeItem === "new" || activeItem === "update"
+              ? "pending"
+              : activeItem;
           return (
             <Segment>
               <Menu attached="top" tabular>
@@ -221,7 +224,11 @@ const Patient_display = activeItem => {
               <Context.Consumer>
                 {mainContext =>
                   mainContext.activeUser.first_name ? (
-                    <Patient patient={mainContext.activeUser} />
+                    activeItem === "update" ? (
+                      <PatientForm currentUser={mainContext.activeUser} />
+                    ) : (
+                      <Patient patient={mainContext.activeUser} />
+                    )
                   ) : (
                     <PatientForm />
                   )

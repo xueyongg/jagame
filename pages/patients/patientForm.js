@@ -31,6 +31,21 @@ export default class PatientForm extends Component {
     loading: false
   };
 
+  componentDidMount() {
+    let currentUser = this.props.currentUser;
+
+    if (currentUser) {
+      const { first_name, last_name, gender, phone, description } = currentUser;
+      this.setState({
+        first_name,
+        last_name,
+        gender,
+        phone,
+        description
+      });
+    }
+  }
+
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleSubmit = (e, context, activePageContext) => {
@@ -38,16 +53,35 @@ export default class PatientForm extends Component {
     this.setState({ loading: true });
     let { first_name, last_name, gender, phone, description } = this.state;
     let pendingCollection = context.userData.collections.pending;
-    pendingCollection.push({
-      first_name,
-      last_name,
-      gender,
-      phone,
-      description,
-      status: "pending",
-      time_stamp: context.moment(),
-      collection: []
-    });
+    let userExist = _.find(pendingCollection, { id: context.activeUser.id });
+
+    if (userExist) {
+      let index = _.findIndex(pendingCollection, { id: context.activeUser.id });
+      userExist = {
+        ...context.activeUser,
+        first_name,
+        last_name,
+        gender,
+        phone,
+        description,
+        status: "pending",
+        time_stamp: context.moment()
+      };
+      pendingCollection[index] = userExist;
+    } else {
+      pendingCollection.push({
+        id: _.uniqueId("user_"),
+        first_name,
+        last_name,
+        gender,
+        phone,
+        description,
+        status: "pending",
+        time_stamp: context.moment(),
+        collection: []
+      });
+    }
+
     context.updateData(context.userData);
     activePageContext.updateTab("pending");
   };
@@ -60,7 +94,10 @@ export default class PatientForm extends Component {
     ];
     return (
       <Segment basic>
-        <Header as="h1" content="New Patient" />
+        <Header
+          as="h1"
+          content={this.props.currentUser ? "Update Patient" : "New Patient"}
+        />
         <Context.Consumer>
           {context => {
             return (
@@ -118,7 +155,14 @@ export default class PatientForm extends Component {
                         placeholder="More descriptions about the patient..."
                         onChange={this.handleChange}
                       />
-                      <Button type="submit" primary fluid>Create</Button>
+                      <Button
+                        type="submit"
+                        primary
+                        fluid
+                        loading={this.state.loading}
+                      >
+                        {this.props.currentUser ? "Update" : "Create"}
+                      </Button>
                     </Form>
                   );
                 }}

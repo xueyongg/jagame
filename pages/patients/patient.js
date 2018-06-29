@@ -23,6 +23,8 @@ import { productSum } from "../../utility/sum";
 import Product from "../components/draggableProduct/product";
 import { countProductsByUnique } from "../../utility/sort";
 import CheckoutConfirmation from "./patient/checkoutConfirmation";
+import { Context } from "../components/context";
+import { ActivePageContext } from "../patients";
 
 export default class Patient extends Component {
   static async getInitialProps({ patient }) {
@@ -82,15 +84,28 @@ export default class Patient extends Component {
                   }
                   content="Check out collection"
                 />
-                <Popup
-                  trigger={
-                    <Button color="blue" floated="right">
-                      <Icon name="edit outline" />
-                      Edit User
-                    </Button>
-                  }
-                  content="Edit user details"
-                />
+                <ActivePageContext.Consumer>
+                  {activePageContext => {
+                    if (activePageContext)
+                      return (
+                        <Popup
+                          trigger={
+                            <Button
+                              color="blue"
+                              floated="right"
+                              onClick={() => {
+                                activePageContext.updateTab("update");
+                              }}
+                            >
+                              <Icon name="edit outline" />
+                              Edit User
+                            </Button>
+                          }
+                          content="Edit user details"
+                        />
+                      );
+                  }}
+                </ActivePageContext.Consumer>
               </Segment>
             </Grid.Column>
           </Grid.Row>
