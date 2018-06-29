@@ -55,7 +55,7 @@ export default class Home extends Component {
         <PageHeader />
         <Context.Consumer>
           {mainContext => {
-            if (mainContext) {
+            if (mainContext && mainContext.sessionId) {
               console.log("MainContext", mainContext);
               const userData = mainContext.userData;
               return (
@@ -69,7 +69,7 @@ export default class Home extends Component {
 
                   <Segment.Group horizontal>
                     <Segment>
-                      <Home_status data={mainContext} />
+                      <Home_status data={mainContext.userData} />
                     </Segment>
                     <Segment textAlign="center">
                       <Header as="h2" content="Collection Status" />
@@ -93,7 +93,9 @@ export default class Home extends Component {
                   <Header as="h2">
                     <Icon name="plus" color="red" />
                     <Link href="/patients" passHref>
-                      <Header.Content style={{color: "black"}}>Pending Patients</Header.Content>
+                      <Header.Content style={{ color: "black" }}>
+                        Pending Patients
+                      </Header.Content>
                     </Link>
                   </Header>
                   <Segment>
@@ -114,9 +116,7 @@ export default class Home extends Component {
  */
 class Home_status extends Component {
   state = {
-    pendingCounter: [1, 2, 3, 4, 5, 6, 7],
-    completedCounter: [2, 4, 3, 4, 5, 6, 7],
-    totalCounter: [2, 4, 3, 4, 5, 6, 7],
+    totalCounter: [],
     chartData: {
       labels: this.getLastSevenDates(7),
       datasets: [
@@ -128,7 +128,7 @@ class Home_status extends Component {
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [1, 2, 3, 4, 5, 6, 7]
+          data: this.getLastSevenDaysData("pending")
         },
         {
           label: "Completed",
@@ -138,18 +138,18 @@ class Home_status extends Component {
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(151,187,205,1)",
-          data: [2, 4, 3, 4, 5, 6, 7]
-        },
-        {
-          label: "Total",
-          fillColor: "rgba(151,187,205,0.2)",
-          strokeColor: "rgba(151,187,205,1)",
-          pointColor: "rgba(151,187,205,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(151,187,205,1)",
-          data: [2, 4, 3, 4, 5, 6, 7]
+          data: this.getLastSevenDaysData("completed")
         }
+        // {
+        //   label: "Total",
+        //   fillColor: "rgba(151,187,205,0.2)",
+        //   strokeColor: "rgba(151,187,205,1)",
+        //   pointColor: "rgba(151,187,205,1)",
+        //   pointStrokeColor: "#fff",
+        //   pointHighlightFill: "#fff",
+        //   pointHighlightStroke: "rgba(151,187,205,1)",
+        //   data: [2, 4, 3, 4, 5, 6, 7]
+        // }
       ]
     },
     chartOptions: {
@@ -165,6 +165,27 @@ class Home_status extends Component {
       }
     }
   };
+
+  getLastSevenDaysData(collectionType) {
+    const selectedCollection = this.props.data.collections[collectionType];
+    let userCounter = {};
+    // console.log("selectedCollection " + collectionType, selectedCollection);
+    if (selectedCollection) {
+      selectedCollection.map(user => {
+        let { time_stamp } = user;
+        let daysBefore = moment(time_stamp).diff(moment(), "d");
+        if (userCounter[daysBefore]) {
+          userCounter[daysBefore] += 1;
+        } else {
+          userCounter[daysBefore] = 1;
+        }
+      });
+      let results = [7, 6, 5, 4, 3, 2, 1, 0].map(num => {
+        return userCounter[num] || 0;
+      });
+      return results;
+    }
+  }
 
   /**
    * params:
@@ -227,7 +248,6 @@ class Home_pending_list extends Component {
               return (
                 <Card.Group itemsPerRow={4}>
                   {pending.map((user, index) => {
-                    // console.log("Pending", user);
                     const {
                       first_name,
                       last_name,
