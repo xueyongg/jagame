@@ -1,16 +1,16 @@
 // Sum up the total value of selected products
 export function productSum(products) {
-  let total;
+  let total = 0;
   if (products && products.length > 0) {
-      console.log("< Products: ",products)
+    console.log("< Products: ", products);
     let priceList = products.map(product => {
       return product.price;
     });
-    
 
     total = priceList.reduce(
-      (accumulator, currentValue) => accumulator + currentValue
+      (accumulator, currentValue) => Number(accumulator) + Number(currentValue)
     );
   }
-  return total || Number(0).toFixed(2);
+
+  return Number(total).toFixed(2) || Number(0).toFixed(2);
 }

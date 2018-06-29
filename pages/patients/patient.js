@@ -89,15 +89,20 @@ export default class Patient extends Component {
           <Divider />
           <Grid.Row>
             <Grid.Column>
-              <Patient_selected_items selectedProducts={collection} />
+              <Segment basic compact>
+                <Patient_selected_items selectedProducts={collection} />
+              </Segment>
             </Grid.Column>
           </Grid.Row>
+
           <Grid.Row>
             <Grid.Column>
-              <Header as="h3" icon>
-                Product Search
-              </Header>
-              <SearchComponent />
+              <Segment basic compact>
+                <Header as="h3" icon>
+                  Product Search
+                </Header>
+                <SearchComponent />
+              </Segment>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -111,23 +116,22 @@ const Patient_selected_items = ({ selectedProducts }) => {
     console.log("selectedProducts: ", selectedProducts);
     return (
       <div>
-        <Grid.Row>
-          <Header as="h3" icon>
-            Selected {selectedProducts.length} product{selectedProducts.length !==
-            0
-              ? "s"
-              : ""}
-          </Header>
-        </Grid.Row>
+        <Header as="h3" icon>
+          Selected {selectedProducts.length} product{selectedProducts.length !==
+          0
+            ? "s"
+            : ""}
+        </Header>
 
-        <Grid.Row>
-          <Grid.Column>
-            <Image
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-              size="small"
-            />
-          </Grid.Column>
-        </Grid.Row>
+        <List>
+          {selectedProducts.length !== 0 ? (
+            selectedProducts.map((product, i) => {
+              return <List.Item key={i}>{product.name}</List.Item>;
+            })
+          ) : (
+            <p>No items selected</p>
+          )}
+        </List>
       </div>
     );
   } else {
