@@ -15,7 +15,8 @@ import {
   Label,
   Form,
   Message,
-  Divider
+  Divider,
+  Popup
 } from "semantic-ui-react";
 import Search from "../components/search";
 import { productSum } from "../../utility/sum";
@@ -35,6 +36,7 @@ export default class Patient extends Component {
       collection
     } = this.props.patient;
     // console.log("< Active User: ", this.props.patient);
+    let total = productSum(collection);
     return (
       <div>
         <Grid>
@@ -48,13 +50,34 @@ export default class Patient extends Component {
                   {/* <Message.Header>Changes in Service</Message.Header> */}
                   <p>{description ? description : "No description"}</p>
                 </Message>
-                <Button icon>
-                  <Icon name="github" />
-                  Download
-                </Button>
-                <Button icon>
-                  <Icon name="github" /> Check Out
-                </Button>
+                <Popup
+                  trigger={
+                    <Button
+                      as="div"
+                      labelPosition="right"
+                      floated="right"
+                      disabled={total === "0.00"}
+                    >
+                      <Button color="green">
+                        <Icon name="shop" />
+                        Check Out
+                      </Button>
+                      <Label as="a" basic color="green" pointing="left">
+                        ${total}
+                      </Label>
+                    </Button>
+                  }
+                  content="Check out collection"
+                />
+                <Popup
+                  trigger={
+                    <Button color="blue" icon floated="right">
+                      <Icon name="download" />
+                      Download
+                    </Button>
+                  }
+                  content="Download list as CSV file"
+                />
               </Segment>
             </Grid.Column>
           </Grid.Row>
@@ -88,7 +111,6 @@ const Patient_selected_items = ({ selectedProducts }) => {
             0
               ? "s"
               : ""}
-            <Label as="a">${productSum(selectedProducts)}</Label>
           </Header>
         </Grid.Row>
 

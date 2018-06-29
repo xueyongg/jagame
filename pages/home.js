@@ -90,11 +90,10 @@ export default class Home extends Component {
                   </Segment.Group>
 
                   <Header as="h2">
-                    <Icon name="plus" color="red"/>
+                    <Icon name="plus" color="red" />
                     <Link href="/patients" passHref>
                       <Header.Content>Pending Patients</Header.Content>
                     </Link>
-                    
                   </Header>
                   <Segment>
                     <Home_pending_list />
@@ -238,22 +237,25 @@ class Home_pending_list extends Component {
                       collection
                     } = user;
                     return (
-                      <Card key={index}>
-                        <Card.Content>
-                          <Card.Header>
-                            {_.capitalize(first_name) +
-                              " " +
-                              _.capitalize(last_name)}
-                          </Card.Header>
-                          <Card.Meta>{gender}</Card.Meta>
-                          <Card.Description>{description}</Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
+                        <Card
+                          key={index}
+                        
+                        >
+                          <Card.Content >
+                            <Card.Header>
+                              {_.capitalize(first_name) +
+                                " " +
+                                _.capitalize(last_name)}
+                            </Card.Header>
+                            <Card.Meta>{_.capitalize(gender)}</Card.Meta>
+                            <Card.Description style={{height: "100%",maxHeight: 300, "overflow-y": "auto"}}>{description}</Card.Description>
+                          </Card.Content>
+                          <Card.Content extra>
                           <Link href="/patients" passHref>
                             <div className="ui two buttons">
                               <Button
                                 basic
-                                color="green"
+                                color="blue"
                                 onClick={() => {
                                   mainContext.updateUser(user);
                                 }}
@@ -261,12 +263,12 @@ class Home_pending_list extends Component {
                                 View More
                               </Button>
                             </div>
-                          </Link>
-                        </Card.Content>
-                      </Card>
+                            </Link>
+                          </Card.Content>
+                        </Card>
+                      
                     );
                   })}
-                
                 </Card.Group>
               );
           }}
