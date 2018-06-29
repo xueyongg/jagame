@@ -33,7 +33,8 @@ export default class Patient extends Component {
       gender,
       phone,
       description,
-      collection
+      collection,
+      status
     } = this.props.patient;
     // console.log("< Active User: ", this.props.patient);
     let total = productSum(collection);
@@ -45,6 +46,10 @@ export default class Patient extends Component {
               <Segment basic>
                 <Header as="h2">
                   {_.capitalize(first_name)} {_.capitalize(last_name)}
+                  <Label color={status === "pending" ? "yellow" : "teal"}>
+                    <Icon name={status === "pending" ? "time" : "check"} />{" "}
+                    {_.capitalize(status)}
+                  </Label>
                 </Header>
                 <Message>
                   {/* <Message.Header>Changes in Service</Message.Header> */}
@@ -71,7 +76,7 @@ export default class Patient extends Component {
                 />
                 <Popup
                   trigger={
-                    <Button color="blue" icon floated="right">
+                    <Button color="blue" floated="right">
                       <Icon name="download" />
                       Download
                     </Button>

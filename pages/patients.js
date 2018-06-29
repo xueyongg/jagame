@@ -108,7 +108,7 @@ class Patients_list extends Component {
                   }}
                 >
                   Pending
-                  <Label color="pink">{this.props.pending.length}</Label>
+                  <Label color="yellow">{this.props.pending.length}</Label>
                 </Menu.Item>
                 <Menu.Item
                   name="completed"
@@ -116,7 +116,7 @@ class Patients_list extends Component {
                   onClick={() => updateTab("completed")}
                 >
                   Completed
-                  <Label color="pink">{this.props.completed.length}</Label>
+                  <Label color="teal">{this.props.completed.length}</Label>
                 </Menu.Item>
                 <Menu.Menu position="right">
                   <Menu.Item>
