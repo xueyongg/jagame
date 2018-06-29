@@ -216,58 +216,68 @@ class Home_pending_list extends Component {
     return (
       <div>
         <Context.Consumer>
-          {value => {
-            let pending = value ? value.userData.collections.pending : [];
-
-            return (
-              <Card.Group>
-                {pending.map((item, index) => {
-                  console.log("Pending", item);
-                  const {
-                    first_name,
-                    last_name,
-                    gender,
-                    description,
-                    phone,
-                    status,
-                    time_stamp,
-                    collection
-                  } = item;
-                  return (
-                    <Card key={index}>
-                      <Card.Content>
-                        <Card.Header>
-                          {_.capitalize(first_name) +
-                            " " +
-                            _.capitalize(last_name)}
-                        </Card.Header>
-                        <Card.Meta>{gender}</Card.Meta>
-                        <Card.Description>{description}</Card.Description>
-                      </Card.Content>
-                      <Card.Content extra>
-                        <div className="ui two buttons">
-                          <Button basic color="green">
-                            View More
-                          </Button>
-                        </div>
-                      </Card.Content>
-                    </Card>
-                  );
-                })}
-                <Card basic style={{ border: 0 }}>
-                  <Segment basic vertical>
-                    <Icon
-                      name="plus"
-                      link
-                      href=""
-                      size="massive"
-                      color="pink"
-                      alt=""
-                    />
-                  </Segment>
-                </Card>
-              </Card.Group>
-            );
+          {mainContext => {
+            let pending = mainContext
+              ? mainContext.userData.collections.pending
+              : [];
+            if (mainContext)
+              return (
+                <Card.Group>
+                  {pending.map((user, index) => {
+                    // console.log("Pending", user);
+                    const {
+                      first_name,
+                      last_name,
+                      gender,
+                      description,
+                      phone,
+                      status,
+                      time_stamp,
+                      collection
+                    } = user;
+                    return (
+                      <Card key={index}>
+                        <Card.Content>
+                          <Card.Header>
+                            {_.capitalize(first_name) +
+                              " " +
+                              _.capitalize(last_name)}
+                          </Card.Header>
+                          <Card.Meta>{gender}</Card.Meta>
+                          <Card.Description>{description}</Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                          <Link href="/patients" passHref>
+                            <div className="ui two buttons">
+                              <Button
+                                basic
+                                color="green"
+                                onClick={() => {
+                                  mainContext.updateUser(user);
+                                }}
+                              >
+                                View More
+                              </Button>
+                            </div>
+                          </Link>
+                        </Card.Content>
+                      </Card>
+                    );
+                  })}
+                  <Card style={{ border: 0 }}>
+                    <Segment basic vertical>
+                      <Icon
+                        name="plus"
+                        link
+                        href=""
+                        size="massive"
+                        color="pink"
+                        alt=""
+                      />
+                    </Segment>
+                  </Card>
+                </Card.Group>
+              );
           }}
         </Context.Consumer>
       </div>
