@@ -34,6 +34,7 @@ export default class Patient extends Component {
       description,
       collection
     } = this.props.patient;
+    // console.log("< Active User: ", this.props.patient);
     return (
       <div>
         <Grid>
@@ -41,7 +42,7 @@ export default class Patient extends Component {
             <Grid.Column>
               <Segment basic>
                 <Header as="h2">
-                  {first_name} {last_name}
+                  {_.capitalize(first_name)} {_.capitalize(last_name)}
                 </Header>
                 <Message>
                   {/* <Message.Header>Changes in Service</Message.Header> */}

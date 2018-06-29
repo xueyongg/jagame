@@ -161,6 +161,9 @@ class Home_status extends Component {
     }
   };
 
+  /**
+   * params:
+   */
   getLastSevenDates() {
     return [6, 5, 4, 3, 2, 1, 0].map(
       num =>

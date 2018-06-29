@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 const moment = require("moment");
 import axios from "axios";
+const _ = require("lodash");
 
 export const Context = React.createContext();
 export const ProductsContext = React.createContext();
@@ -29,6 +30,14 @@ export default class ContextProvider extends Component {
     },
     moment: () => {
       return moment();
+    },
+    activeUser: {},
+    updateUser: user => {
+      console.log("user", user);
+      console.log("this.state.activeUser", this.state.activeUser);
+      if (user !== this.state.activeUser) {
+        this.setState({ activeUser: user });
+      }
     }
   };
   // This will create a new session for the user that access, and a new collection set up will be done

@@ -22,7 +22,6 @@ import { Context } from "./components/context";
 import Patient from "./patients/patient";
 const moment = require("moment");
 export const ActivePageContext = React.createContext();
-export const ActiveUserContext = React.createContext();
 
 /**
  * List of components:
@@ -36,12 +35,6 @@ export default class Patients extends Component {
     activeItem: "pending",
     updateTab: tab => {
       this.setState({ activeItem: tab });
-    },
-    activeUser: {},
-    updateUser: user => {
-      if (user !== this.state.activeUser) {
-        this.setState({ activeUser: user });
-      }
     }
   };
 
@@ -57,34 +50,31 @@ export default class Patients extends Component {
                     ? this.state.activeItem
                     : "pending"
                 ];
-              this.state.updateUser(chosenCollections[0]);
               return (
                 <div>
-                  <ActiveUserContext.Provider value={this.state.activeUser}>
-                    <Head>
-                      <title>Patients Management</title>
-                    </Head>
-                    <PageHeader />
-                    <Container>
-                      <Grid style={{ height: "800px" }} stackable>
-                        <Grid.Row stretched>
-                          <Grid.Column width={6}>
-                            <Patients_list
-                              pending={
-                                mainContext.userData.collections["pending"]
-                              }
-                              completed={
-                                mainContext.userData.collections["completed"]
-                              }
-                            />
-                          </Grid.Column>
-                          <Grid.Column width={10}>
-                            <Patient_display />
-                          </Grid.Column>
-                        </Grid.Row>
-                      </Grid>
-                    </Container>
-                  </ActiveUserContext.Provider>
+                  <Head>
+                    <title>Patients Management</title>
+                  </Head>
+                  <PageHeader />
+                  <Container>
+                    <Grid style={{ height: "800px" }} stackable>
+                      <Grid.Row stretched>
+                        <Grid.Column width={6}>
+                          <Patients_list
+                            pending={
+                              mainContext.userData.collections["pending"]
+                            }
+                            completed={
+                              mainContext.userData.collections["completed"]
+                            }
+                          />
+                        </Grid.Column>
+                        <Grid.Column width={10}>
+                          <Patient_display />
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </Container>
                 </div>
               );
             }
@@ -147,16 +137,19 @@ class Patients_list extends Component {
               <Segment attached="bottom">
                 <List celled>
                   <Context.Consumer>
-                    {context => {
-                      if (context) {
-                        let userData = context.userData;
+                    {mainContext => {
+                      // If context is loaded
+                      if (mainContext) {
+                        let userData = mainContext.userData;
+
+                        // If the collection is loaded
                         if (
                           userData.collections[activeCollection] &&
                           userData.collections[activeCollection].length !== 0
                         )
                           return userData.collections[activeCollection].map(
                             (collection, i) => {
-                              console.log("collection", collection);
+                              // console.log("collection", collection);
                               const {
                                 first_name,
                                 last_name,
@@ -169,7 +162,9 @@ class Patients_list extends Component {
                                 <List.Item
                                   active
                                   key={i}
-                                  onClick={() => contex}
+                                  onClick={() =>
+                                    mainContext.updateUser(collection)
+                                  }
                                 >
                                   <List.Icon
                                     name={gender}
@@ -178,7 +173,7 @@ class Patients_list extends Component {
                                   />
                                   <List.Content>
                                     <List.Header as="a">
-                                      {first_name} {last_name}
+                                      {_.capitalize(first_name)} {last_name}
                                     </List.Header>
                                     <List.Description as="a">
                                       Updated{" "}
@@ -222,15 +217,15 @@ const Patient_display = activeItem => {
             {activeItem === "new" ? (
               <PatientForm />
             ) : (
-              <ActiveUserContext.Consumer>
-                {activeUser =>
-                  activeUser ? (
-                    <Patient patient={activeUser} />
+              <Context.Consumer>
+                {mainContext =>
+                  mainContext.activeUser.first_name ? (
+                    <Patient patient={mainContext.activeUser} />
                   ) : (
                     <PatientForm />
                   )
                 }
-              </ActiveUserContext.Consumer>
+              </Context.Consumer>
             )}
           </Segment>
         );
