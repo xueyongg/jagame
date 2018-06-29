@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Icon, Card, Popup, List } from "semantic-ui-react";
+import { Image, Icon, Card, Popup, List, Button } from "semantic-ui-react";
 import { Context } from "../context";
 
 export default class Product extends Component {
@@ -27,7 +27,7 @@ export default class Product extends Component {
                   <span className="date">
                     {product.in_stock ? "Available" : "Out of Stock"}
                     {this.props.productCounter
-                      ?  ` x${this.props.productCounter}`
+                      ? ` x${this.props.productCounter}`
                       : ""}
                   </span>
                 </Card.Meta>
@@ -47,7 +47,23 @@ export default class Product extends Component {
                   </a>
                 </Card.Content>
               ) : (
-                ""
+                <Button.Group size="small">
+                  <Button
+                    onClick={() => {
+                      mainContext.updateActiveUserData(product, "delete");
+                    }}
+                  >
+                    <Icon name="minus" />
+                  </Button>
+                  <Button.Or />
+                  <Button
+                    onClick={() => {
+                      mainContext.updateActiveUserData(product, "add");
+                    }}
+                  >
+                    <Icon name="plus" />
+                  </Button>
+                </Button.Group>
               )}
             </Card>
           );

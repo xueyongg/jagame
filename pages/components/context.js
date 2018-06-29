@@ -45,7 +45,7 @@ export default class ContextProvider extends Component {
           // activeUser.userData.collection.push(newProduct);
         }
         this.setState({ activeUser });
-        console.log("updated!");
+        
       }
     }
   };

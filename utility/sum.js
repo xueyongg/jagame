@@ -2,7 +2,6 @@
 export function productSum(products) {
   let total = 0;
   if (products && products.length > 0) {
-    console.log("< Products: ", products);
     let priceList = products.map(product => {
       return product.price;
     });

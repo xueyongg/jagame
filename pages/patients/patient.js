@@ -22,6 +22,7 @@ import SearchComponent from "../components/search";
 import { productSum } from "../../utility/sum";
 import Product from "../components/draggableProduct/product";
 import { countProductsByUnique } from "../../utility/sort";
+import CheckoutConfirmation from "./patient/checkoutConfirmation";
 
 export default class Patient extends Component {
   static async getInitialProps({ patient }) {
@@ -53,26 +54,30 @@ export default class Patient extends Component {
                     {_.capitalize(status)}
                   </Label>
                 </Header>
-                <Message>
-                  {/* <Message.Header>Changes in Service</Message.Header> */}
+                <Message style={{ height: 100, overflowY: "auto" }}>
                   <p>{description ? description : "No description"}</p>
                 </Message>
                 <Popup
                   trigger={
-                    <Button
-                      as="div"
-                      labelPosition="right"
-                      floated="right"
-                      disabled={total === "0.00"}
+                    <CheckoutConfirmation
+                      patient={this.props.patient}
+                      totalAmount={total}
                     >
-                      <Button color="green">
-                        <Icon name="shop" />
-                        Check Out
+                      <Button
+                        as="div"
+                        labelPosition="right"
+                        floated="right"
+                        disabled={total === "0.00"}
+                      >
+                        <Button color="green">
+                          <Icon name="shop" />
+                          Check Out
+                        </Button>
+                        <Label as="a" basic color="green" pointing="left">
+                          ${total}
+                        </Label>
                       </Button>
-                      <Label as="a" basic color="green" pointing="left">
-                        ${total}
-                      </Label>
-                    </Button>
+                    </CheckoutConfirmation>
                   }
                   content="Check out collection"
                 />
@@ -91,7 +96,7 @@ export default class Patient extends Component {
           <Divider />
           <Grid.Row>
             <Grid.Column
-              style={{ height: "180px", maxHeight: "180px", overflowY: "auto" }}
+              style={{ height: "220px", maxHeight: "220px", overflowY: "auto" }}
             >
               <Segment basic>
                 <Patient_selected_items selectedProducts={collection} />
@@ -115,7 +120,7 @@ export default class Patient extends Component {
   }
 }
 
-const Patient_selected_items = ({ selectedProducts }) => {
+export const Patient_selected_items = ({ selectedProducts }) => {
   if (selectedProducts) {
     let productCounter = countProductsByUnique(selectedProducts);
     return (
