@@ -223,7 +223,7 @@ class Home_pending_list extends Component {
               : [];
             if (mainContext)
               return (
-                <Card.Group>
+                <Card.Group itemsPerRow={4}>
                   {pending.map((user, index) => {
                     // console.log("Pending", user);
                     const {
@@ -248,7 +248,7 @@ class Home_pending_list extends Component {
                           <Card.Description
                             style={{
                               height: "100%",
-                              maxHeight: 300,
+                              maxHeight: 200,
                               overflowY: "auto"
                             }}
                           >
