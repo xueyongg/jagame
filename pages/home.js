@@ -237,20 +237,25 @@ class Home_pending_list extends Component {
                       collection
                     } = user;
                     return (
-                        <Card
-                          key={index}
-                        
-                        >
-                          <Card.Content >
-                            <Card.Header>
-                              {_.capitalize(first_name) +
-                                " " +
-                                _.capitalize(last_name)}
-                            </Card.Header>
-                            <Card.Meta>{_.capitalize(gender)}</Card.Meta>
-                            <Card.Description style={{height: "100%",maxHeight: 300, "overflow-y": "auto"}}>{description}</Card.Description>
-                          </Card.Content>
-                          <Card.Content extra>
+                      <Card key={index}>
+                        <Card.Content>
+                          <Card.Header>
+                            {_.capitalize(first_name) +
+                              " " +
+                              _.capitalize(last_name)}
+                          </Card.Header>
+                          <Card.Meta>{_.capitalize(gender)}</Card.Meta>
+                          <Card.Description
+                            style={{
+                              height: "100%",
+                              maxHeight: 300,
+                              overflowY: "auto"
+                            }}
+                          >
+                            {description}
+                          </Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
                           <Link href="/patients" passHref>
                             <div className="ui two buttons">
                               <Button
@@ -263,10 +268,9 @@ class Home_pending_list extends Component {
                                 View More
                               </Button>
                             </div>
-                            </Link>
-                          </Card.Content>
-                        </Card>
-                      
+                          </Link>
+                        </Card.Content>
+                      </Card>
                     );
                   })}
                 </Card.Group>

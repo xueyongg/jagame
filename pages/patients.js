@@ -21,6 +21,7 @@ import PatientForm from "./patients/patientForm";
 import { Context } from "./components/context";
 import Patient from "./patients/patient";
 const moment = require("moment");
+
 export const ActivePageContext = React.createContext();
 
 /**

@@ -11,7 +11,7 @@ export default class Product extends Component {
   }
 
   render() {
-    console.log(this.props.product);
+    // console.log(this.props.product);
     let product = this.props.product;
     let image = product.images[0];
     return (

@@ -18,7 +18,7 @@ import {
   Divider,
   Popup
 } from "semantic-ui-react";
-import Search from "../components/search";
+import SearchComponent from "../components/search";
 import { productSum } from "../../utility/sum";
 
 export default class Patient extends Component {
@@ -97,7 +97,7 @@ export default class Patient extends Component {
               <Header as="h3" icon>
                 Product Search
               </Header>
-              <Search />
+              <SearchComponent />
             </Grid.Column>
           </Grid.Row>
         </Grid>
