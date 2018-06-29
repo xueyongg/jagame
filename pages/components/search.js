@@ -68,7 +68,8 @@ export default class SearchComponent extends Component {
     }, 300);
   };
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.name });
+  handleResultSelect = (e, { result }) =>
+    this.setState({ value: result.title });
 
   render() {
     const { isLoading, value, results, rawResults } = this.state;
@@ -78,6 +79,7 @@ export default class SearchComponent extends Component {
     return (
       <div>
         <Search
+          as={"h3"}
           loading={isLoading}
           onResultSelect={this.handleResultSelect}
           onSearchChange={_.debounce(this.handleSearchChange, 500, {
@@ -88,13 +90,11 @@ export default class SearchComponent extends Component {
           {...this.props}
         />
 
-        <Segment basic>
-          <List bulleted relaxed>
-            {products.map((product, i) => {
-              if (i < 10) return <Product key={i} product={product} />; // Only display a maximum of 10 products at any one time
-            })}
-          </List>
-        </Segment>
+        <Card.Group itemsPerRow={3}>
+          {products.map((product, i) => {
+            if (i < 3) return <Product key={i} product={product} />; // Only display a maximum of 10 products at any one time
+          })}
+        </Card.Group>
       </div>
     );
   }

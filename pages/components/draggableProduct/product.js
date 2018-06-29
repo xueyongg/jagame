@@ -19,41 +19,37 @@ export default class Product extends Component {
         {mainContext => {
           if (mainContext) console.log("mainContext", mainContext);
           return (
-            <Popup
-              trigger={
-                <List.Item>
-                  {/* <Image avatar src={image} /> */}
-                  <List.Content>
-                    <List.Header>{product.name}</List.Header>
-                    <a
-                      onClick={() => {
-                        mainContext.updateActiveUserData(product, "add");
-                      }}
-                    >
-                      <Icon name="plus" />
-                      Add to cart
-                    </a>
-                  </List.Content>
-                </List.Item>
-              }
-              content={
-                <Card>
-                  <Image src={image.src} alt={image.alt} />
-                  <Card.Content>
-                    <Card.Header>{product.name}</Card.Header>
-                    <Card.Meta>
-                      <span className="date">
-                        {product.in_stock ? "Available" : "Out of Stock"}
-                      </span>
-                    </Card.Meta>
-                    <Card.Description>
-                      ${Number(product.price).toFixed(2)}
-                    </Card.Description>
-                  </Card.Content>
-                </Card>
-              }
-              on="hover"
-            />
+            <Card>
+              <Card.Content>
+                <Image floated="right" size="mini" src={image} />
+                <Card.Header>{product.name}</Card.Header>
+                <Card.Meta>
+                  <span className="date">
+                    {product.in_stock ? "Available" : "Out of Stock"}
+                    {this.props.productCounter
+                      ?  ` x${this.props.productCounter}`
+                      : ""}
+                  </span>
+                </Card.Meta>
+                <Card.Description>
+                  ${Number(product.price).toFixed(2)}
+                </Card.Description>
+              </Card.Content>
+              {!this.props.selected ? (
+                <Card.Content extra>
+                  <a
+                    onClick={() => {
+                      mainContext.updateActiveUserData(product, "add");
+                    }}
+                  >
+                    <Icon name="plus" />
+                    Add to cart
+                  </a>
+                </Card.Content>
+              ) : (
+                ""
+              )}
+            </Card>
           );
         }}
       </Context.Consumer>

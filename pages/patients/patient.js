@@ -20,6 +20,8 @@ import {
 } from "semantic-ui-react";
 import SearchComponent from "../components/search";
 import { productSum } from "../../utility/sum";
+import Product from "../components/draggableProduct/product";
+import { countProductsByUnique } from "../../utility/sort";
 
 export default class Patient extends Component {
   static async getInitialProps({ patient }) {
@@ -88,16 +90,18 @@ export default class Patient extends Component {
           </Grid.Row>
           <Divider />
           <Grid.Row>
-            <Grid.Column>
-              <Segment basic compact>
+            <Grid.Column
+              style={{ height: "180px", maxHeight: "180px", overflowY: "auto" }}
+            >
+              <Segment basic>
                 <Patient_selected_items selectedProducts={collection} />
               </Segment>
             </Grid.Column>
           </Grid.Row>
-
+          <Divider />
           <Grid.Row>
-            <Grid.Column>
-              <Segment basic compact>
+            <Grid.Column style={{ maxHeight: "350px", overflowY: "auto" }}>
+              <Segment basic>
                 <Header as="h3" icon>
                   Product Search
                 </Header>
@@ -113,25 +117,32 @@ export default class Patient extends Component {
 
 const Patient_selected_items = ({ selectedProducts }) => {
   if (selectedProducts) {
-    console.log("selectedProducts: ", selectedProducts);
+    let productCounter = countProductsByUnique(selectedProducts);
     return (
       <div>
-        <Header as="h3" icon>
+        <Header as="h3">
           Selected {selectedProducts.length} product{selectedProducts.length !==
           0
             ? "s"
             : ""}
         </Header>
 
-        <List>
+        <Card.Group itemsPerRow={3}>
           {selectedProducts.length !== 0 ? (
-            selectedProducts.map((product, i) => {
-              return <List.Item key={i}>{product.name}</List.Item>;
+            _.sortedUniq(selectedProducts).map((product, i) => {
+              return (
+                <Product
+                  key={i}
+                  product={product}
+                  selected={true}
+                  productCounter={productCounter[product.id]}
+                />
+              );
             })
           ) : (
             <p>No items selected</p>
           )}
-        </List>
+        </Card.Group>
       </div>
     );
   } else {
