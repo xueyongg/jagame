@@ -44,57 +44,83 @@ export default class Home extends Component {
         <Head>
           <title>Welcome Jaga Pro</title>
         </Head>
-        <PageHeader />
+
         <Context.Consumer>
           {mainContext => {
-            if (mainContext && mainContext.sessionId) {
-              console.log("MainContext", mainContext);
-              const userData = mainContext.userData;
-              return (
-                <Container>
-                  <Link href="/patients" passHref>
-                    <Header as="h2">
-                      <Icon name="file outline" />
-                      <Header.Content>Status Overview</Header.Content>
-                    </Header>
-                  </Link>
+            if (mainContext) {
+              if (mainContext.sessionId) {
+                console.log("MainContext", mainContext);
+                const userData = mainContext.userData;
+                return (
+                  <div>
+                    <PageHeader />
+                    <Container>
+                      <Link href="/patients" passHref>
+                        <Header as="h2">
+                          <Icon name="file outline" />
+                          <Header.Content>Status Overview</Header.Content>
+                        </Header>
+                      </Link>
 
-                  <Segment.Group horizontal>
-                    <Segment>
-                      <Home_status data={mainContext.userData} />
-                    </Segment>
-                    <Segment textAlign="center">
-                      <Header as="h2" content="Collection Status" />
-                      <Statistic.Group widths="two">
-                        <Statistic color="red">
-                          <Statistic.Value>
-                            {userData.collections["pending"].length}
-                          </Statistic.Value>
-                          <Statistic.Label>Pending</Statistic.Label>
-                        </Statistic>
-                        <Statistic color="green">
-                          <Statistic.Value>
-                            {userData.collections["completed"].length}
-                          </Statistic.Value>
-                          <Statistic.Label>Completed</Statistic.Label>
-                        </Statistic>
-                      </Statistic.Group>
-                    </Segment>
-                  </Segment.Group>
+                      <Segment.Group horizontal>
+                        <Segment>
+                          <Home_status data={mainContext.userData} />
+                        </Segment>
+                        <Segment textAlign="center">
+                          <Header as="h2" content="Collection Status" />
+                          <Statistic.Group widths="two">
+                            <Statistic color="red">
+                              <Statistic.Value>
+                                {userData.collections["pending"].length}
+                              </Statistic.Value>
+                              <Statistic.Label>Pending</Statistic.Label>
+                            </Statistic>
+                            <Statistic color="green">
+                              <Statistic.Value>
+                                {userData.collections["completed"].length}
+                              </Statistic.Value>
+                              <Statistic.Label>Completed</Statistic.Label>
+                            </Statistic>
+                          </Statistic.Group>
+                        </Segment>
+                      </Segment.Group>
 
-                  <Header as="h2">
-                    <Icon name="plus" color="red" />
-                    <Link href="/patients" passHref>
-                      <Header.Content style={{ color: "black" }}>
-                        Pending Patients
-                      </Header.Content>
-                    </Link>
-                  </Header>
-                  <Segment>
-                    <Home_pending_list />
+                      <Header as="h2">
+                        <Icon name="plus" color="red" />
+                        <Link href="/patients" passHref>
+                          <Header.Content style={{ color: "black" }}>
+                            Pending Patients
+                          </Header.Content>
+                        </Link>
+                      </Header>
+                      <Segment>
+                        <Home_pending_list />
+                      </Segment>
+                    </Container>
+                  </div>
+                );
+              } else {
+                // Local Storage exist but session does not; Implying Cognito
+                return (
+                  <Segment
+                    basic
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translateX(-50%) translateY(-50%)"
+                    }}
+                  >
+                    <Header
+                      as="h1"
+                      content="Please exit from cognito mode to use this application! (:"
+                      textAlign="center"
+                    />
                   </Segment>
-                </Container>
-              );
+                );
+              }
+            } else {
+              return <Segment loading basic style={{ height: "600px" }} />;
             }
           }}
         </Context.Consumer>
