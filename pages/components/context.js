@@ -39,12 +39,36 @@ export default class ContextProvider extends Component {
     },
     updateActiveUserData: (newProduct, action) => {
       let activeUser = this.state.activeUser;
+
       if (activeUser && activeUser.status === "pending" && newProduct) {
         if (action === "add") activeUser.collection.push(newProduct);
         else if (action === "delete") {
           // activeUser.userData.collection.push(newProduct);
+          let index = _.findIndex(activeUser.collection, { id: newProduct.id });
+          activeUser.collection.splice(index, 1);
         }
         this.setState({ activeUser });
+
+        // Retrieve the selected user
+        let pendingCollection = this.state.userData.collections.pending;
+        let userExist = _.find(pendingCollection, {
+          id: activeUser.id
+        });
+
+        // Find index of user, update the user in state & persist in local storage
+        if (userExist) {
+          let index = _.findIndex(pendingCollection, {
+            id: activeUser.id
+          });
+          userExist = {
+            ...activeUser,
+            collection: activeUser.collection,
+            status: "pending",
+            time_stamp: moment()
+          };
+          pendingCollection[index] = userExist;
+          this.state.updateData(this.state.userData);
+        }
       }
     }
   };

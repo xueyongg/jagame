@@ -236,59 +236,68 @@ class Home_pending_list extends Component {
             let pending = mainContext
               ? mainContext.userData.collections.pending
               : [];
-            if (mainContext)
-              return (
-                <Card.Group itemsPerRow={4}>
-                  {pending.map((user, index) => {
-                    const {
-                      first_name,
-                      last_name,
-                      gender,
-                      description,
-                      phone,
-                      status,
-                      time_stamp,
-                      collection
-                    } = user;
-                    return (
-                      <Card key={index}>
-                        <Card.Content>
-                          <Card.Header>
-                            {_.capitalize(first_name) +
-                              " " +
-                              _.capitalize(last_name)}
-                          </Card.Header>
-                          <Card.Meta>{_.capitalize(gender)}</Card.Meta>
-                          <Card.Description
-                            style={{
-                              height: "100%",
-                              maxHeight: 200,
-                              overflowY: "auto"
-                            }}
-                          >
-                            {description}
-                          </Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
-                          <Link href="/patients" passHref>
-                            <div className="ui two buttons">
-                              <Button
-                                basic
-                                color="blue"
-                                onClick={() => {
-                                  mainContext.updateUser(user);
-                                }}
-                              >
-                                View More
-                              </Button>
-                            </div>
-                          </Link>
-                        </Card.Content>
-                      </Card>
-                    );
-                  })}
-                </Card.Group>
-              );
+            if (mainContext) {
+              if (pending.length !== 0) {
+                return (
+                  <Card.Group itemsPerRow={4}>
+                    {pending.map((user, index) => {
+                      const {
+                        first_name,
+                        last_name,
+                        gender,
+                        description,
+                        phone,
+                        status,
+                        time_stamp,
+                        collection
+                      } = user;
+                      return (
+                        <Card key={index}>
+                          <Card.Content>
+                            <Card.Header>
+                              {_.capitalize(first_name) +
+                                " " +
+                                _.capitalize(last_name)}
+                            </Card.Header>
+                            <Card.Meta>{_.capitalize(gender)}</Card.Meta>
+                            <Card.Description
+                              style={{
+                                height: "100%",
+                                maxHeight: 200,
+                                overflowY: "auto"
+                              }}
+                            >
+                              {description}
+                            </Card.Description>
+                          </Card.Content>
+                          <Card.Content extra>
+                            <Link href="/patients" passHref>
+                              <div className="ui two buttons">
+                                <Button
+                                  basic
+                                  color="blue"
+                                  onClick={() => {
+                                    mainContext.updateUser(user);
+                                  }}
+                                >
+                                  View More
+                                </Button>
+                              </div>
+                            </Link>
+                          </Card.Content>
+                        </Card>
+                      );
+                    })}
+                  </Card.Group>
+                );
+              } else {
+                return (
+                  <Header as="h2" textAlign="center">
+                    <Header.Content>No pending patients</Header.Content>
+                  </Header>
+                );
+              }
+            }
           }}
         </Context.Consumer>
       </div>
