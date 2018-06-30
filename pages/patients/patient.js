@@ -160,7 +160,9 @@ export const Patient_selected_items = ({ selectedProducts }) => {
               );
             })
           ) : (
-            <p>No items selected</p>
+            <Segment basic>
+              <p>No items selected</p>
+            </Segment>
           )}
         </Card.Group>
       </div>
