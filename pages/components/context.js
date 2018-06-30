@@ -4,7 +4,6 @@ import axios from "axios";
 const _ = require("lodash");
 
 export const Context = React.createContext();
-export const ProductsContext = React.createContext();
 export default class ContextProvider extends Component {
   static async getInitialProps() {}
 
@@ -17,6 +16,7 @@ export default class ContextProvider extends Component {
       },
       bookmarkedProducts: []
     },
+    initiated: false,
     updateData: data => {
       if (this.state.sessionId) {
         console.log(
@@ -45,7 +45,22 @@ export default class ContextProvider extends Component {
           // activeUser.userData.collection.push(newProduct);
         }
         this.setState({ activeUser });
-        
+      }
+    },
+    initiateProducts: products => {
+      // Products set up
+      if (
+        window.localStorage &&
+        products &&
+        !window.localStorage.getItem("products")
+      ) {
+        window.localStorage.setItem("products", JSON.stringify(products));
+        this.setState({ products, initiated: true });
+      } else if (window.localStorage.getItem("products")) {
+        this.setState({
+          products: JSON.parse(window.localStorage.getItem("products")),
+          initiated: true
+        });
       }
     }
   };
@@ -70,27 +85,12 @@ export default class ContextProvider extends Component {
             bookmarkedProducts: []
           }
     });
-
-    // Products set up
-
-    if (window.localStorage && this.props.products !== null) {
-      console.log("< Context products was updated with: ", this.props.products);
-      window.localStorage.setItem("products", this.props.products);
-      this.setState({ loading: false, products: this.props.products });
-    }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.products !== this.state.products) {
-      this.setState({ products: this.props.products });
-    }
-  }
   render() {
     return (
       <Context.Provider value={this.state}>
-        <ProductsContext.Provider value={this.props.products}>
-          {this.props.children}
-        </ProductsContext.Provider>
+        {this.props.children}
       </Context.Provider>
     );
   }

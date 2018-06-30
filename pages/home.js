@@ -35,15 +35,7 @@ export default class Home extends Component {
     // Will consume context for this particular session
   }
 
-  componentDidMount() {
-    const url =
-      "https://82v9umvzoj.execute-api.ap-southeast-1.amazonaws.com/dev/products";
-
-    let response = axios({ method: "GET", url }).catch(e => {
-      console.log("< Error in PRODUCT ENDPOINT", e);
-    });
-    this.setState({ products: response ? response.data : {} });
-  }
+  componentDidMount() {}
   state = { activeItem: "home" };
 
   render() {

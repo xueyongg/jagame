@@ -17,11 +17,10 @@ import {
   Message,
   Search
 } from "semantic-ui-react";
-import { ProductsContext } from "./context";
+import { ProductsContext, Context } from "./context";
 
 import DraggableProduct from "./draggableProduct";
 import Product from "./draggableProduct/product";
-const data = require("../../static/data.json");
 
 export default class SearchComponent extends Component {
   static async getInitialProps({ patient }) {
@@ -39,20 +38,24 @@ export default class SearchComponent extends Component {
     results: [],
     rawResults: [],
     isLoading: false,
-    value: ""
+    value: "",
+    data: []
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.setState({ data: this.props.products });
+  }
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
+    let data = this.state.data;
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = result => re.test(result.name);
-      console.log("results", _.filter(data, isMatch));
+      // console.log("results", _.filter(data, isMatch));
       this.setState({
         isLoading: false,
         results: _.filter(data, isMatch).map(dataItem => {
@@ -72,7 +75,7 @@ export default class SearchComponent extends Component {
     this.setState({ value: result.title });
 
   render() {
-    const { isLoading, value, results, rawResults } = this.state;
+    const { isLoading, value, results, rawResults, data } = this.state;
 
     let products = rawResults.length === 0 ? data : rawResults;
 

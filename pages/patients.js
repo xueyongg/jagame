@@ -227,7 +227,10 @@ const Patient_display = activeItem => {
                     activeItem === "update" ? (
                       <PatientForm currentUser={mainContext.activeUser} />
                     ) : (
-                      <Patient patient={mainContext.activeUser} />
+                      <Patient
+                        patient={mainContext.activeUser}
+                        products={mainContext.products}
+                      />
                     )
                   ) : (
                     <PatientForm />
