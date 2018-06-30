@@ -150,7 +150,7 @@ export const Patient_selected_items = ({ selectedProducts }) => {
 
         <Card.Group itemsPerRow={3}>
           {selectedProducts.length !== 0 ? (
-            _.sortedUniq(selectedProducts).map((product, i) => {
+            _.sortedUniqBy(selectedProducts, "id").map((product, i) => {
               return (
                 <Product
                   key={i}

@@ -84,7 +84,7 @@ export default class CheckoutConfirmation extends Component {
               </Table.Header>
 
               <Table.Body>
-                {collection.map((product, i) => {
+                {_.sortedUniqBy(collection, "id").map((product, i) => {
                   console.log("product", product);
                   const { id, name, price, description } = product;
                   const qty = productCounter[id];
@@ -103,9 +103,15 @@ export default class CheckoutConfirmation extends Component {
 
               <Table.Footer>
                 <Table.Row>
-                  <Table.HeaderCell>Total Qty</Table.HeaderCell>
-                  <Table.HeaderCell>{totalQty}</Table.HeaderCell>
-                  <Table.HeaderCell>${this.props.totalAmount}</Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <strong>Total Qty</strong>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <strong>{totalQty}</strong>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <strong>${this.props.totalAmount}</strong>
+                  </Table.HeaderCell>
                 </Table.Row>
               </Table.Footer>
             </Table>
