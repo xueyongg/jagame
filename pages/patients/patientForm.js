@@ -166,6 +166,7 @@ export default class PatientForm extends Component {
                           value={description}
                           placeholder="More descriptions about the patient..."
                           onChange={this.handleChange}
+                          style={{ height: "200px" }}
                         />
                         <Button
                           type="submit"
