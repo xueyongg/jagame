@@ -215,31 +215,33 @@ const Patient_display = activeItem => {
   return (
     <ActivePageContext.Consumer>
       {activePageContext => {
-        const { activeItem } = activePageContext;
-        return (
-          <Segment>
-            {activeItem === "new" ? (
-              <PatientForm />
-            ) : (
-              <Context.Consumer>
-                {mainContext =>
-                  mainContext.activeUser.first_name ? (
-                    activeItem === "update" ? (
-                      <PatientForm currentUser={mainContext.activeUser} />
+        if (activePageContext) {
+          const { activeItem } = activePageContext;
+          return (
+            <Segment>
+              {activeItem === "new" ? (
+                <PatientForm />
+              ) : (
+                <Context.Consumer>
+                  {mainContext =>
+                    mainContext.activeUser.first_name ? (
+                      activeItem === "update" ? (
+                        <PatientForm currentUser={mainContext.activeUser} />
+                      ) : (
+                        <Patient
+                          patient={mainContext.activeUser}
+                          products={mainContext.products}
+                        />
+                      )
                     ) : (
-                      <Patient
-                        patient={mainContext.activeUser}
-                        products={mainContext.products}
-                      />
+                      <PatientForm />
                     )
-                  ) : (
-                    <PatientForm />
-                  )
-                }
-              </Context.Consumer>
-            )}
-          </Segment>
-        );
+                  }
+                </Context.Consumer>
+              )}
+            </Segment>
+          );
+        }
       }}
     </ActivePageContext.Consumer>
   );

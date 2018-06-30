@@ -33,7 +33,6 @@ export default class PatientForm extends Component {
 
   componentDidMount() {
     let currentUser = this.props.currentUser;
-
     if (currentUser) {
       const { first_name, last_name, gender, phone, description } = currentUser;
       this.setState({
@@ -53,11 +52,14 @@ export default class PatientForm extends Component {
     this.setState({ loading: true });
     let { first_name, last_name, gender, phone, description } = this.state;
     let pendingCollection = context.userData.collections.pending;
-    let userExist = _.find(pendingCollection, { id: context.activeUser.id });
 
-    if (userExist) {
+    // Finding user in the "Pending" collection
+    let user = _.find(pendingCollection, { id: context.activeUser.id });
+
+    if (user) {
+      // Updating an existing user
       let index = _.findIndex(pendingCollection, { id: context.activeUser.id });
-      userExist = {
+      user = {
         ...context.activeUser,
         first_name,
         last_name,
@@ -67,8 +69,12 @@ export default class PatientForm extends Component {
         status: "pending",
         time_stamp: context.moment()
       };
-      pendingCollection[index] = userExist;
+      pendingCollection[index] = user;
+
+      // Update the activeUser state, so the changes will be updated
+      context.updateUser(user);
     } else {
+      // Adding in a new user into the pending collection
       pendingCollection.push({
         id: _.uniqueId("user_"),
         first_name: first_name.trim(),
@@ -82,6 +88,7 @@ export default class PatientForm extends Component {
       });
     }
 
+    // Update local storage with newest data && change the page selection to "pending"
     context.updateData(context.userData);
     activePageContext.updateTab("pending");
   };
@@ -103,68 +110,70 @@ export default class PatientForm extends Component {
             return (
               <ActivePageContext.Consumer>
                 {activePageContext => {
-                  return (
-                    <Form
-                      loading={this.state.loading}
-                      onSubmit={e =>
-                        this.handleSubmit(e, context, activePageContext)
-                      }
-                    >
-                      <Form.Group widths="equal">
-                        <Form.Input
-                          fluid
-                          name="first_name"
-                          label="First name"
-                          value={first_name}
-                          placeholder="First name"
-                          required
-                          onChange={this.handleChange}
-                        />
-                        <Form.Input
-                          fluid
-                          name="last_name"
-                          label="Last name"
-                          value={last_name}
-                          placeholder="Last name"
-                          onChange={this.handleChange}
-                        />
-                      </Form.Group>
-                      <Form.Group widths={2}>
-                        <Form.Select
-                          options={options}
-                          name="gender"
-                          value={gender}
-                          placeholder="Gender"
-                          label="Gender"
-                          required
-                          onChange={this.handleChange}
-                        />
-
-                        <Form.Input
-                          label="Phone"
-                          value={phone}
-                          name="phone"
-                          placeholder="Phone"
-                          onChange={this.handleChange}
-                        />
-                      </Form.Group>
-                      <Form.TextArea
-                        label="Description"
-                        name="description"
-                        value={description}
-                        placeholder="More descriptions about the patient..."
-                        onChange={this.handleChange}
-                      />
-                      <Button
-                        type="submit"
-                        primary
-                        fluid
+                  if (activePageContext) {
+                    return (
+                      <Form
                         loading={this.state.loading}
+                        onSubmit={e =>
+                          this.handleSubmit(e, context, activePageContext)
+                        }
                       >
-                        {this.props.currentUser ? "Update" : "Create"}
-                      </Button>
-                    </Form>
-                  );
+                        <Form.Group widths="equal">
+                          <Form.Input
+                            fluid
+                            name="first_name"
+                            label="First name"
+                            value={first_name}
+                            placeholder="First name"
+                            required
+                            onChange={this.handleChange}
+                          />
+                          <Form.Input
+                            fluid
+                            name="last_name"
+                            label="Last name"
+                            value={last_name}
+                            placeholder="Last name"
+                            onChange={this.handleChange}
+                          />
+                        </Form.Group>
+                        <Form.Group widths={2}>
+                          <Form.Select
+                            options={options}
+                            name="gender"
+                            value={gender}
+                            placeholder="Gender"
+                            label="Gender"
+                            required
+                            onChange={this.handleChange}
+                          />
+
+                          <Form.Input
+                            label="Phone"
+                            value={phone}
+                            name="phone"
+                            placeholder="Phone"
+                            onChange={this.handleChange}
+                          />
+                        </Form.Group>
+                        <Form.TextArea
+                          label="Description"
+                          name="description"
+                          value={description}
+                          placeholder="More descriptions about the patient..."
+                          onChange={this.handleChange}
+                        />
+                        <Button
+                          type="submit"
+                          primary
+                          fluid
+                          loading={this.state.loading}
+                        >
+                          {this.props.currentUser ? "Update" : "Create"}
+                        </Button>
+                      </Form>
+                    );
+                  }
                 }}
               </ActivePageContext.Consumer>
             );
