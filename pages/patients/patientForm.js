@@ -75,7 +75,7 @@ export default class PatientForm extends Component {
       context.updateUser(user);
     } else {
       // Adding in a new user into the pending collection
-      pendingCollection.push({
+      user = {
         id: _.uniqueId("user_"),
         first_name: first_name.trim(),
         last_name: last_name.trim(),
@@ -85,7 +85,11 @@ export default class PatientForm extends Component {
         status: "pending",
         time_stamp: context.moment(),
         collection: []
-      });
+      };
+      pendingCollection.push(user);
+
+      // Update the activeUser state, so the changes will be updated
+      context.updateUser(user);
     }
 
     // Update local storage with newest data && change the page selection to "pending"
