@@ -20,7 +20,7 @@ import {
 } from "semantic-ui-react";
 import SearchComponent from "../components/search";
 import { productSum } from "../../utility/sum";
-import Product from "../components/draggableProduct/product";
+import Product from "../components/product";
 import { countProductsByUnique } from "../../utility/sort";
 import CheckoutConfirmation from "./patient/checkoutConfirmation";
 import { Context } from "../components/context";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Image, Icon, Card, Popup, List, Button } from "semantic-ui-react";
-import { Context } from "../context";
+import { Context } from "./context";
 
 export default class Product extends Component {
   static async getInitialProps({ product }) {
@@ -44,6 +44,13 @@ export default class Product extends Component {
                   >
                     <Icon name="plus" />
                     Add to cart
+                  </a>
+
+                  <a onClick={() => {}}>
+                    <Icon
+                      name="bookmark outline"
+                      style={{ marginLeft: "4em", marginRight: 0 }}
+                    />
                   </a>
                 </Card.Content>
               ) : (

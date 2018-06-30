@@ -17,10 +17,7 @@ import {
   Message,
   Search
 } from "semantic-ui-react";
-import { ProductsContext, Context } from "./context";
-
-import DraggableProduct from "./draggableProduct";
-import Product from "./draggableProduct/product";
+import Product from "./product";
 
 export default class SearchComponent extends Component {
   static async getInitialProps({ patient }) {
