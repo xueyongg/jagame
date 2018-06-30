@@ -166,9 +166,10 @@ class Patients_list extends Component {
                                 <List.Item
                                   active
                                   key={i}
-                                  onClick={() =>
-                                    mainContext.updateUser(collection)
-                                  }
+                                  onClick={() => {
+                                    mainContext.updateUser(collection);
+                                    updateTab(activeCollection);
+                                  }}
                                 >
                                   <List.Icon
                                     name={gender}
@@ -223,20 +224,22 @@ const Patient_display = activeItem => {
                 <PatientForm />
               ) : (
                 <Context.Consumer>
-                  {mainContext =>
-                    mainContext.activeUser.first_name ? (
-                      activeItem === "update" ? (
-                        <PatientForm currentUser={mainContext.activeUser} />
+                  {mainContext => {
+                    if (mainContext) {
+                      return mainContext.activeUser.first_name ? (
+                        activeItem === "update" ? (
+                          <PatientForm currentUser={mainContext.activeUser} />
+                        ) : (
+                          <Patient
+                            patient={mainContext.activeUser}
+                            products={mainContext.products}
+                          />
+                        )
                       ) : (
-                        <Patient
-                          patient={mainContext.activeUser}
-                          products={mainContext.products}
-                        />
-                      )
-                    ) : (
-                      <PatientForm />
-                    )
-                  }
+                        <PatientForm />
+                      );
+                    }
+                  }}
                 </Context.Consumer>
               )}
             </Segment>

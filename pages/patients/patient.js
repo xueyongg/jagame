@@ -86,24 +86,23 @@ export default class Patient extends Component {
                 />
                 <ActivePageContext.Consumer>
                   {activePageContext => {
-                    if (activePageContext)
-                      return (
-                        <Popup
-                          trigger={
-                            <Button
-                              color="blue"
-                              floated="right"
-                              onClick={() => {
-                                activePageContext.updateTab("update");
-                              }}
-                            >
-                              <Icon name="edit outline" />
-                              Edit User
-                            </Button>
-                          }
-                          content="Edit user details"
-                        />
-                      );
+                    return (
+                      <Popup
+                        trigger={
+                          <Button
+                            color="blue"
+                            floated="right"
+                            onClick={() => {
+                              activePageContext.updateTab("update");
+                            }}
+                          >
+                            <Icon name="edit outline" />
+                            Edit User
+                          </Button>
+                        }
+                        content="Edit user details"
+                      />
+                    );
                   }}
                 </ActivePageContext.Consumer>
               </Segment>
