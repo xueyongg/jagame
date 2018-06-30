@@ -31,12 +31,16 @@ export default class CheckoutConfirmation extends Component {
   state = { open: false };
   close = () => this.setState({ open: false });
 
-  handleConfirmation() {
+  handleConfirmation(collection) {
     this.setState({ loading: true });
     const url = "https://github.com/fredsted/webhook.site";
 
-    let response = axios(url, {
-      type: "POST"
+    let response = axios({
+      method: "POST",
+      url,
+      params: {
+        collection
+      }
     })
       .then(res => {
         this.setState({ loading: false, open: false });
@@ -44,6 +48,7 @@ export default class CheckoutConfirmation extends Component {
       .catch(e => {
         console.log(e);
       });
+    // change the activeUser to status: completed
   }
 
   render() {
@@ -109,7 +114,13 @@ export default class CheckoutConfirmation extends Component {
         <Modal.Actions>
           <Popup
             trigger={
-              <Button inverted color="blue" onClick={()=>{createAndDownloadPDF({})}}>
+              <Button
+                inverted
+                color="blue"
+                onClick={() => {
+                  createAndDownloadPDF({});
+                }}
+              >
                 <Icon name="download" />
                 Download
               </Button>
@@ -136,7 +147,7 @@ export default class CheckoutConfirmation extends Component {
                 color="green"
                 inverted
                 onClick={() => {
-                  this.handleConfirmation();
+                  this.handleConfirmation(collection);
                 }}
                 loading={this.state.loading}
               >

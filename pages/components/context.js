@@ -46,22 +46,6 @@ export default class ContextProvider extends Component {
         }
         this.setState({ activeUser });
       }
-    },
-    initiateProducts: products => {
-      // Products set up
-      if (
-        window.localStorage &&
-        products &&
-        !window.localStorage.getItem("products")
-      ) {
-        window.localStorage.setItem("products", JSON.stringify(products));
-        this.setState({ products, initiated: true });
-      } else if (window.localStorage.getItem("products")) {
-        this.setState({
-          products: JSON.parse(window.localStorage.getItem("products")),
-          initiated: true
-        });
-      }
     }
   };
   // This will create a new session for the user that access, and a new collection set up will be done
@@ -85,6 +69,30 @@ export default class ContextProvider extends Component {
             bookmarkedProducts: []
           }
     });
+
+    // Products Setup
+    if (window.localStorage.getItem("products")) {
+      // Avoid calling the URL unnecessarily
+      this.setState({
+        products: JSON.parse(window.localStorage.getItem("products")),
+        initiated: true
+      });
+    } else {
+      // API call
+      const url =
+        "https://82v9umvzoj.execute-api.ap-southeast-1.amazonaws.com/dev/products";
+      axios({ method: "GET", url })
+        .then(res => {
+          let products = res.data;
+          if (products) {
+            window.localStorage.setItem("products", JSON.stringify(products));
+            this.setState({ products, initiated: true });
+          }
+        })
+        .catch(e => {
+          console.log("< Error in PRODUCT ENDPOINT", e);
+        });
+    }
   }
 
   render() {
