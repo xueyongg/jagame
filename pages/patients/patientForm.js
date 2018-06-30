@@ -71,10 +71,10 @@ export default class PatientForm extends Component {
     } else {
       pendingCollection.push({
         id: _.uniqueId("user_"),
-        first_name,
-        last_name,
+        first_name: first_name.trim(),
+        last_name: last_name.trim(),
         gender,
-        phone,
+        phone: phone.trim(),
         description,
         status: "pending",
         time_stamp: context.moment(),

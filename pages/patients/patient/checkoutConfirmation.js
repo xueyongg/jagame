@@ -124,7 +124,12 @@ export default class CheckoutConfirmation extends Component {
                 inverted
                 color="blue"
                 onClick={() => {
-                  createAndDownloadPDF({});
+                  createAndDownloadPDF({
+                    patient,
+                    productCounter,
+                    totalAmount: this.props.totalAmount,
+                    totalQty
+                  });
                 }}
               >
                 <Icon name="download" />
