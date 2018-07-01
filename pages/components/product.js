@@ -25,7 +25,7 @@ export default class Product extends Component {
             return (
               <Card>
                 <Card.Content>
-                  <Image floated="right" size="mini" src={image} />
+                  <Image floated="right" size="mini" src={image.src} />
                   <Card.Header>{product.name}</Card.Header>
                   <Card.Meta>
                     <span className="date">

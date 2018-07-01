@@ -227,10 +227,6 @@ const Patient_display = activeItem => {
                 <Context.Consumer>
                   {mainContext => {
                     if (mainContext) {
-                      console.log(
-                        "mainContext.userData.bookmarkedProducts",
-                        mainContext.userData.bookmarkedProducts
-                      );
                       return mainContext.activeUser.first_name ? (
                         activeItem === "update" ? (
                           <PatientForm currentUser={mainContext.activeUser} />

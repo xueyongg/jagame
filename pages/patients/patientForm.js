@@ -13,7 +13,9 @@ import {
   Button,
   Statistic,
   Label,
-  Form
+  Form,
+  Popup,
+  Modal
 } from "semantic-ui-react";
 import { ActivePageContext } from "../patients";
 import { Context } from "../components/context";
@@ -171,11 +173,31 @@ export default class PatientForm extends Component {
                         <Button
                           type="submit"
                           primary
-                          fluid
                           loading={this.state.loading}
                         >
+                          <Icon
+                            name={
+                              this.props.currentUser ? "write" : "user plus"
+                            }
+                          />
                           {this.props.currentUser ? "Update" : "Create"}
                         </Button>
+                        {this.props.currentUser ? (
+                          <Popup
+                            trigger={
+                              <Button type="submit" negative>
+                                <Icon name="user delete" />Delete user
+                              </Button>
+                            }
+                            content={
+                              <div>
+                                <Icon name="warning circle" /> Delete user
+                              </div>
+                            }
+                          />
+                        ) : (
+                          ""
+                        )}
                       </Form>
                     );
                   }
