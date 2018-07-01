@@ -218,6 +218,7 @@ const Patient_display = activeItem => {
       {activePageContext => {
         if (activePageContext) {
           const { activeItem } = activePageContext;
+
           return (
             <Segment>
               {activeItem === "new" ? (
@@ -226,6 +227,10 @@ const Patient_display = activeItem => {
                 <Context.Consumer>
                   {mainContext => {
                     if (mainContext) {
+                      console.log(
+                        "mainContext.userData.bookmarkedProducts",
+                        mainContext.userData.bookmarkedProducts
+                      );
                       return mainContext.activeUser.first_name ? (
                         activeItem === "update" ? (
                           <PatientForm currentUser={mainContext.activeUser} />
@@ -233,6 +238,7 @@ const Patient_display = activeItem => {
                           <Patient
                             patient={mainContext.activeUser}
                             products={mainContext.products}
+                            bookmarks={mainContext.userData.bookmarkedProducts}
                           />
                         )
                       ) : (

@@ -43,7 +43,6 @@ export default class ContextProvider extends Component {
       if (activeUser && activeUser.status === "pending" && newProduct) {
         if (action === "add") activeUser.collection.push(newProduct);
         else if (action === "delete") {
-          // activeUser.userData.collection.push(newProduct);
           let index = _.findIndex(activeUser.collection, { id: newProduct.id });
           activeUser.collection.splice(index, 1);
         }
@@ -70,6 +69,19 @@ export default class ContextProvider extends Component {
           this.state.updateData(this.state.userData);
         }
       }
+    },
+    updateBookmark: product => {
+      let bookmarkedProducts = this.state.userData.bookmarkedProducts;
+
+      let index = _.findIndex(bookmarkedProducts, { id: product.id });
+      if (index !== -1) {
+        bookmarkedProducts.splice(index, 1);
+      } else {
+        bookmarkedProducts.push(product);
+      }
+
+      // Persist the change in local Storage
+      this.state.updateData(this.state.userData);
     }
   };
   // This will create a new session for the user that access, and a new collection set up will be done

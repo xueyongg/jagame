@@ -125,7 +125,10 @@ export default class Patient extends Component {
                 <Header as="h3" icon>
                   Product Search
                 </Header>
-                <SearchComponent products={this.props.products} />
+                <SearchComponent
+                  products={this.props.products}
+                  bookmarks={this.props.bookmarks}
+                />
               </Segment>
             </Grid.Column>
           </Grid.Row>

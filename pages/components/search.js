@@ -36,11 +36,15 @@ export default class SearchComponent extends Component {
     rawResults: [],
     isLoading: false,
     value: "",
-    data: []
+    data: [],
+    bookmarkedProducts: []
   };
 
   componentDidMount() {
-    this.setState({ data: this.props.products });
+    this.setState({
+      data: this.props.products,
+      bookmarks: this.props.bookmarks || []
+    });
   }
 
   handleSearchChange = (e, { value }) => {
@@ -49,13 +53,18 @@ export default class SearchComponent extends Component {
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
-
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = result => re.test(result.name);
-      // console.log("results", _.filter(data, isMatch));
+
+      // Inserting bookmarked products into the search
+      let rawResults = _.filter(data, isMatch);
+      this.state.bookmarks.forEach(product => {
+        rawResults.push(product);
+      });
+      let uniqueRawResults = _.uniqBy(rawResults, "id");
       this.setState({
         isLoading: false,
-        results: _.filter(data, isMatch).map(dataItem => {
+        results: uniqueRawResults.map(dataItem => {
           let { name, price, in_stock } = dataItem;
           return {
             title: name,
@@ -63,7 +72,7 @@ export default class SearchComponent extends Component {
             description: in_stock ? "Available" : "Out-of-stock"
           };
         }),
-        rawResults: _.filter(data, isMatch)
+        rawResults: uniqueRawResults
       });
     }, 300);
   };
