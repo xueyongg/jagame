@@ -31,6 +31,16 @@ export default class Patient extends Component {
     return { patient };
   }
 
+  componentDidMount() {
+    this.setState({
+      patient: this.props.patient,
+      mainContext: this.props.mainContext,
+      products: this.props.products,
+      bookmarks: this.props.bookmarks,
+      activePageContext: this.props.activePageContext
+    });
+  }
+
   render() {
     const {
       first_name,
@@ -41,7 +51,6 @@ export default class Patient extends Component {
       collection,
       status
     } = this.props.patient;
-    // console.log("< Active User: ", this.props.patient);
     let total = productSum(collection);
     return (
       <div>
@@ -65,12 +74,14 @@ export default class Patient extends Component {
                       patient={this.props.patient}
                       totalAmount={total}
                       productCounter={countProductsByUnique(collection)}
+                      mainContext={this.props.mainContext}
+                      activePageContext={this.props.activePageContext}
                     >
                       <Button
                         as="div"
                         labelPosition="right"
                         floated="right"
-                        disabled={total === "0.00"}
+                        disabled={total === "0.00" || status !== "pending"}
                       >
                         <Button color="green">
                           <Icon name="shop" />

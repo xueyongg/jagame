@@ -232,6 +232,8 @@ const Patient_display = activeItem => {
                           <PatientForm currentUser={mainContext.activeUser} />
                         ) : (
                           <Patient
+                            mainContext={mainContext}
+                            activePageContext={activePageContext}
                             patient={mainContext.activeUser}
                             products={mainContext.products}
                             bookmarks={mainContext.userData.bookmarkedProducts}

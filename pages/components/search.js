@@ -81,7 +81,14 @@ export default class SearchComponent extends Component {
     this.setState({ value: result.title });
 
   render() {
-    const { isLoading, value, results, rawResults, data } = this.state;
+    const {
+      isLoading,
+      value,
+      results,
+      rawResults,
+      data,
+      bookmarks
+    } = this.state;
 
     let products = rawResults.length === 0 ? data : rawResults;
 
@@ -101,7 +108,8 @@ export default class SearchComponent extends Component {
 
         <Card.Group itemsPerRow={3}>
           {products.map((product, i) => {
-            if (i < 3) return <Product key={i} product={product} />; // Only display a maximum of 10 products at any one time
+            let length = 3 + (bookmarks ? bookmarks.length : 0);
+            if (i < length) return <Product key={i} product={product} />; // Only display a maximum of 10 products at any one time
           })}
         </Card.Group>
       </div>

@@ -17,10 +17,7 @@ import Head from "next/head";
 import Link from "next/link";
 import PageHeader from "./components/header";
 import { Context } from "./components/context";
-import { ProductsContext } from "./components/context";
-import DraggableProduct from "./components/draggableProduct";
 const LineChart = require("react-chartjs").Line;
-import axios from "axios";
 const moment = require("moment");
 
 /**
