@@ -96,7 +96,7 @@ class Patients_list extends Component {
       <ActivePageContext.Consumer>
         {activePageContext => {
           const { activeItem, updateTab } = activePageContext;
-          console.log("activeItem", activeItem);
+          // console.log("activeItem", activeItem);
           const activeCollection =
             activeItem === "new" || activeItem === "update"
               ? "pending"

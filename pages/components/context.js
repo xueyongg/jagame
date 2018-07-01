@@ -19,12 +19,12 @@ export default class ContextProvider extends Component {
     initiated: false,
     updateData: data => {
       if (this.state.sessionId) {
-        console.log(
-          "Updating localStorage with Session Id: " + this.sessionId,
-          data
-        );
+        // console.log(
+        //   "Updating localStorage with Session Id: " + this.sessionId,
+        //   data
+        // );
         window.localStorage.setItem(this.state.sessionId, JSON.stringify(data));
-        console.log("Window localStorage", window.localStorage);
+        // console.log("Window localStorage", window.localStorage);
         this.setState({ userData: data });
       }
     },
@@ -91,7 +91,7 @@ export default class ContextProvider extends Component {
     let sessionId = window.document.cookie;
     let userData = window.localStorage.getItem(sessionId);
     userData = JSON.parse(userData);
-    console.log("< localStorage: ", window.localStorage);
+    // console.log("< localStorage: ", window.localStorage);
 
     this.setState({
       sessionId,

@@ -46,7 +46,6 @@ export default class Home extends Component {
           {mainContext => {
             if (mainContext) {
               if (mainContext.sessionId) {
-                console.log("MainContext", mainContext);
                 const userData = mainContext.userData;
                 return (
                   <div>
