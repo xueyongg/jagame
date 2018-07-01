@@ -35,11 +35,23 @@ Next.js is a lightweight framework for static and server‑rendered applications
 ## Features
 
 1. Multi-patient status overview
+Chart and Statistics were used. This serves to give busy Jaga-Pros an easy overview of the patients they are currently dealing with.
+
 2. Search feature
+Implemented using React Semantic-UI, it serves to give an real time search experience.
+
 3. Bookmark feature
-4. Patient collection overview
-5. PDF download feature
+This allows Jaga-Pros to indicate some of the frequently used products, so they need not search them when they are assigning them to each patient.
+
+4. Patient collection billing overview
+This aids the Jaga-Pro to ensure that the products selected and its selected quantity for each patient are clearly indicated along with its price.
+
+This will also give the patient a better understanding of how the total payable amount is derived.
+
+5. PDF download feature - (pdfMake)[https://github.com/bpampuch/pdfmake] was used.
+A simple set up of PDF file based on the user information that is required. This will serve as a softcopy version of the patient's bill.
 6. Local Storage Management
+It utilizes cookie as it's sessionID, thus cognito mode will not be used. 
 
 ## Built With
 
