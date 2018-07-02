@@ -24,6 +24,7 @@ Next.js is a lightweight framework for static and server‑rendered applications
 1. All the pages of the application falls under /pages folder.
 2. Next.js uses the App component to initialize pages. Thus adding context set up into [_app.js](https://nextjs.org/docs/#custom-<app>) ensures all pages have easy access to the main context of the application.
 3. [_document.js](https://nextjs.org/docs/#custom-<document>) is used to set up the application's meta data.
+4. Context was used to deal with the issue of props drilling. In this case, we are initializing the jaga-pro's session right from the initiation of the application, and will attempt to update that jaga-pro based on the patients that he is dealing with.
 
 | Concern         | Solution                                                        |
 | --------------- | --------------------------------------------------------------- |
