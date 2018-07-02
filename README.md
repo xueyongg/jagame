@@ -1,6 +1,7 @@
 # Jaga-me
 
 This app serves to aid Jaga-Pros to manage multiple patients at any one time.
+Check it out (here)[https://xueyongg.github.io/jagame/]
 
 
 ## Getting Started
