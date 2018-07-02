@@ -7,5 +7,5 @@ module.exports = {
 
     return config;
   },
-  // assetPrefix: isProd ? "/jagame" : ""
+  assetPrefix: isProd ? "/jagame" : ""
 };
