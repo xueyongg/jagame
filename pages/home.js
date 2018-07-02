@@ -109,7 +109,7 @@ export default class Home extends Component {
                   >
                     <Header
                       as="h1"
-                      content="Please exit from cognito mode to use this application! (:"
+                      content="Please exit from cognito mode to have the best experience using this application! (:"
                       textAlign="center"
                     />
                   </Segment>

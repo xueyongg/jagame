@@ -51,9 +51,7 @@ export default class PageHeader extends Component {
           </Link>
           <Context.Consumer>
             {context => {
-              return (
-                <Menu.Item>I'm {context ? context.sessionId : ""}</Menu.Item>
-              );
+              <Menu.Item>I'm {context ? context.sessionId : ""}</Menu.Item>;
             }}
           </Context.Consumer>
         </Menu>
