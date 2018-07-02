@@ -52,8 +52,9 @@ This will also give the patient a better understanding of how the total payable 
 
 5. PDF download feature - (pdfMake)[https://github.com/bpampuch/pdfmake] was used.
 A simple set up of PDF file based on the user information that is required. This will serve as a softcopy version of the patient's bill.
+
 6. Local Storage Management
-It utilizes cookie as it's sessionID, thus cognito mode will not be used. 
+It utilizes cookie as its sessionID, thus cognito mode will not be used. Thus for every browser, you can only have one user as of current implementation.
 
 ## Built With
 

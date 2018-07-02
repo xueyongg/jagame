@@ -99,6 +99,26 @@ export default class PatientForm extends Component {
     activePageContext.updateTab("pending");
   };
 
+  handleDelete(context, activePageContext) {
+    let currentUser = this.props.currentUser;
+
+    let pendingCollection = context.userData.collections.pending;
+    let user = _.find(pendingCollection, { id: currentUser.id });
+
+    if (user) {
+      // Remove the user from pending Collection
+      let index = _.findIndex(pendingCollection, { id: currentUser.id });
+      pendingCollection.splice(index, 1);
+
+      // Update the activeUser state, so the changes will be updated
+      context.updateUser({});
+    }
+
+    // Update local storage with newest data && change the page selection to "pending"
+    context.updateData(context.userData);
+    activePageContext.updateTab("pending");
+  }
+
   render() {
     let { first_name, last_name, gender, phone, description } = this.state;
     const options = [
@@ -182,10 +202,16 @@ export default class PatientForm extends Component {
                           />
                           {this.props.currentUser ? "Update" : "Create"}
                         </Button>
-                        {this.props.currentUser ? (
+                        {this.props.currentUser &&
+                        this.props.currentUser.status === "pending" ? (
                           <Popup
                             trigger={
-                              <Button type="submit" negative>
+                              <Button
+                                onClick={() => {
+                                  this.handleDelete(context, activePageContext);
+                                }}
+                                negative
+                              >
                                 <Icon name="user delete" />Delete user
                               </Button>
                             }
