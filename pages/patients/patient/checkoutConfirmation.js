@@ -23,6 +23,7 @@ import {
 import { Patient_selected_items } from "../patient";
 const axios = require("axios");
 import { createAndDownloadPDF } from "../../../utility/pdf";
+const _ = require("lodash");
 
 export default class CheckoutConfirmation extends Component {
   static async getInitialProps({}) {
@@ -84,7 +85,8 @@ export default class CheckoutConfirmation extends Component {
       description,
       collection,
       status
-    } = patient;
+    } =
+      patient || {};
     let totalQty = 0;
     return (
       <Modal trigger={this.props.children} closeIcon>

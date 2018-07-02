@@ -13,7 +13,12 @@ export default class Product extends Component {
 
   render() {
     let product = this.props.product;
-    let image = product.images[0];
+    let image = product
+      ? product.images[0]
+      : {
+          src:
+            "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png"
+        };
     return (
       <Context.Consumer>
         {mainContext => {

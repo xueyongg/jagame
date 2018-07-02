@@ -18,6 +18,7 @@ import {
   Search
 } from "semantic-ui-react";
 import Product from "./product";
+const _ = require("lodash");
 
 export default class SearchComponent extends Component {
   static async getInitialProps({ patient }) {

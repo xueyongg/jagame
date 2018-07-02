@@ -27,15 +27,15 @@ export function createAndDownloadPDF(content) {
     { text: "Price", style: tableHeader }
   ]);
 
-  _.sortedUniqBy(collection, "id")
-    .map((product, i) => {
+  let bodyContent =
+    _.sortedUniqBy(collection, "id").map((product, i) => {
       const { id, name, price, description } = product;
       const qty = productCounter[id];
       return [name, qty, (Number(qty) * Number(price)).toFixed(2)];
-    })
-    .forEach(product => {
-      bodyArray.push(product);
-    });
+    }) || [];
+  bodyContent.forEach(product => {
+    bodyArray.push(product);
+  });
 
   bodyArray.push([
     { text: "Total Qty", style: tableHeader },

@@ -25,6 +25,7 @@ import { countProductsByUnique } from "../../utility/sort";
 import CheckoutConfirmation from "./patient/checkoutConfirmation";
 import { Context } from "../components/context";
 import { ActivePageContext } from "../patients";
+const _ = require("lodash");
 
 export default class Patient extends Component {
   static async getInitialProps({ patient }) {
@@ -50,7 +51,8 @@ export default class Patient extends Component {
       description,
       collection,
       status
-    } = this.props.patient;
+    } =
+      this.props.patient || {};
     let total = productSum(collection);
     return (
       <div>

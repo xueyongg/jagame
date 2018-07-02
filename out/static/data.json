@@ -1,0 +1,1288 @@
+[
+  {
+    "id": 1880,
+    "name": "Opsite Dressing",
+    "slug": "opsite-dressing",
+    "permalink": "https://store.staging.jaga-me.com/shop/opsite-dressing/",
+    "date_created": "2018-04-23T18:32:19",
+    "date_created_gmt": "2018-04-23T10:32:19",
+    "date_modified": "2018-04-23T18:32:19",
+    "date_modified_gmt": "2018-04-23T10:32:19",
+    "type": "simple",
+    "status": "publish",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
+    "sku": "",
+    "price": ".8",
+    "regular_price": ".8",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>0.80</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 7,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [525, 666, 537, 1873, 533],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 0,
+    "meta_data": [
+      { "id": 25627, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 25628, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 25629, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 25630, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 25631, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 25632, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 25633, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 25634, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 25635, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 25636, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 25637, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 25638, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 25667, "key": "fb_product_description", "value": "" },
+      { "id": 25668, "key": "fb_visibility", "value": "1" },
+      {
+        "id": 25669,
+        "key": "fb_product_group_id",
+        "value": "1556001944527918"
+      },
+      { "id": 25670, "key": "fb_product_item_id", "value": "1556001971194582" },
+      { "id": 25671, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      {
+        "id": 25672,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 25673, "key": "_woocommerce_gpf_data", "value": [] },
+      { "id": 25674, "key": "_yoast_wpseo_content_score", "value": "30" },
+      { "id": 26427, "key": "_yoast_wpseo_post_image_cache", "value": [] }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1880"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1878,
+    "name": "Chlorhexidine Gluconate 0.5%",
+    "slug": "chlorhexidine-gluconate-0-5",
+    "permalink":
+      "https://store.staging.jaga-me.com/shop/chlorhexidine-gluconate-0-5/",
+    "date_created": "2018-04-23T18:25:50",
+    "date_created_gmt": "2018-04-23T10:25:50",
+    "date_modified": "2018-04-23T18:25:50",
+    "date_modified_gmt": "2018-04-23T10:25:50",
+    "type": "simple",
+    "status": "publish",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
+    "sku": "",
+    "price": "1",
+    "regular_price": "1",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>1.00</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 2,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [530, 1873, 1880, 533, 525],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 2,
+    "meta_data": [
+      { "id": 25424, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 25425, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 25426, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 25427, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 25428, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 25429, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 25430, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 25431, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 25432, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 25433, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 25434, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 25435, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 25464, "key": "fb_product_description", "value": "" },
+      { "id": 25465, "key": "fb_visibility", "value": "1" },
+      {
+        "id": 25466,
+        "key": "fb_product_group_id",
+        "value": "1960850900624008"
+      },
+      { "id": 25467, "key": "fb_product_item_id", "value": "1960850960624002" },
+      { "id": 25468, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      {
+        "id": 25469,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 25470, "key": "_woocommerce_gpf_data", "value": [] },
+      { "id": 25471, "key": "_yoast_wpseo_content_score", "value": "30" },
+      { "id": 26421, "key": "_yoast_wpseo_post_image_cache", "value": [] }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1878"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1873,
+    "name": "Suction Pump",
+    "slug": "suction-pump",
+    "permalink": "https://store.staging.jaga-me.com/shop/suction-pump/",
+    "date_created": "2018-04-23T17:44:26",
+    "date_created_gmt": "2018-04-23T09:44:26",
+    "date_modified": "2018-04-23T17:44:26",
+    "date_modified_gmt": "2018-04-23T09:44:26",
+    "type": "simple",
+    "status": "publish",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
+    "sku": "",
+    "price": "276",
+    "regular_price": "276",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>276.00</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 1,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [461, 533, 928, 666, 525],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 3,
+    "meta_data": [
+      { "id": 25211, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 25212, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 25213, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 25214, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 25215, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 25216, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 25217, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 25218, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 25219, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 25220, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 25221, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 25222, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 25251, "key": "fb_product_description", "value": "" },
+      { "id": 25252, "key": "fb_visibility", "value": "1" },
+      {
+        "id": 25253,
+        "key": "fb_product_group_id",
+        "value": "1402654249834589"
+      },
+      { "id": 25254, "key": "fb_product_item_id", "value": "1402654276501253" },
+      { "id": 25255, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      {
+        "id": 25256,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 25257, "key": "_woocommerce_gpf_data", "value": [] },
+      { "id": 25258, "key": "_yoast_wpseo_content_score", "value": "30" },
+      { "id": 26428, "key": "_yoast_wpseo_post_image_cache", "value": [] }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1873"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1792,
+    "name": "Sterile Gloves (1 pair)",
+    "slug": "sterile-gloves-1-pair",
+    "permalink": "https://store.staging.jaga-me.com/?post_type=product&p=1792",
+    "date_created": "2018-03-05T18:07:11",
+    "date_created_gmt": "2018-03-05T10:07:11",
+    "date_modified": "2018-03-05T18:08:35",
+    "date_modified_gmt": "2018-03-05T10:08:35",
+    "type": "simple",
+    "status": "draft",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
+    "sku": "",
+    "price": "0.35",
+    "regular_price": "0.35",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>0.35</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [1385, 461, 533, 530, 525],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 5,
+    "meta_data": [
+      { "id": 22713, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 22714, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 22715, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 22716, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 22717, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 22718, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 22719, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 22720, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 22721, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 22722, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 22723, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 22724, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 22753, "key": "fb_product_description", "value": "" },
+      { "id": 22754, "key": "fb_visibility", "value": "staging" },
+      {
+        "id": 22755,
+        "key": "fb_product_group_id",
+        "value": "1670132423066966"
+      },
+      { "id": 22756, "key": "fb_product_item_id", "value": "1670132429733632" },
+      { "id": 22757, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      {
+        "id": 22758,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 22759, "key": "_woocommerce_gpf_data", "value": [] },
+      { "id": 22760, "key": "_yoast_wpseo_content_score", "value": "30" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1792"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1790,
+    "name": "Micropore 1\"",
+    "slug": "micropore-1",
+    "permalink": "https://store.staging.jaga-me.com/?post_type=product&p=1790",
+    "date_created": "2018-03-05T18:04:42",
+    "date_created_gmt": "2018-03-05T10:04:42",
+    "date_modified": "2018-03-05T18:08:25",
+    "date_modified_gmt": "2018-03-05T10:08:25",
+    "type": "simple",
+    "status": "draft",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
+    "sku": "",
+    "price": "1.8",
+    "regular_price": "1.8",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>1.80</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [1873, 525, 610, 666, 461],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 4,
+    "meta_data": [
+      { "id": 22607, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 22608, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 22609, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 22610, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 22611, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 22612, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 22613, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 22614, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 22615, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 22616, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 22617, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 22618, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 22647, "key": "fb_product_description", "value": "" },
+      { "id": 22648, "key": "fb_visibility", "value": "staging" },
+      { "id": 22649, "key": "fb_product_group_id", "value": "988351267956678" },
+      { "id": 22650, "key": "fb_product_item_id", "value": "988351271290011" },
+      { "id": 22651, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      {
+        "id": 22652,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 22653, "key": "_woocommerce_gpf_data", "value": [] },
+      { "id": 22654, "key": "_yoast_wpseo_content_score", "value": "30" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1790"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1633,
+    "name": "Sodium Chloride 0.9% 500ml (Intravenous Use)",
+    "slug": "sodium-chloride-0-9-500ml-intravenous-use",
+    "permalink": "https://store.staging.jaga-me.com/?post_type=product&p=1633",
+    "date_created": "2018-02-13T15:58:28",
+    "date_created_gmt": "2018-02-13T07:58:28",
+    "date_modified": "2018-02-26T17:13:05",
+    "date_modified_gmt": "2018-02-26T09:13:05",
+    "type": "simple",
+    "status": "draft",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
+    "sku": "NSaline500",
+    "price": "3.50",
+    "regular_price": "3.50",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>3.50</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [1385, 1878, 666, 1873, 1880],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 6,
+    "meta_data": [
+      {
+        "id": 20115,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 20121, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 20122, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 20123, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 20124, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 20125, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 20126, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 20127, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 20128, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 20129, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 20130, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 20131, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 20132, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 20161, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      { "id": 20162, "key": "_yoast_wpseo_content_score", "value": "30" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1633"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1609,
+    "name": "Home Nurse Kit",
+    "slug": "home-nurse-kit",
+    "permalink": "https://store.staging.jaga-me.com/shop/home-nurse-kit/",
+    "date_created": "2018-02-05T12:08:20",
+    "date_created_gmt": "2018-02-05T04:08:20",
+    "date_modified": "2018-02-26T17:34:31",
+    "date_modified_gmt": "2018-02-26T09:34:31",
+    "type": "simple",
+    "status": "publish",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description":
+      "<ul>\n<li>Terumo Medisafe Ex Blood Glucose Monitoring System (Pack A)</li>\n<li>Dr Laennec Brumann Stethoscope</li>\n<li>Beurer PO 30 Pulse Oximeter</li>\n<li>Multi-functional thermometer (Beurer), FT 70</li>\n<li>Blood Pressure Monitor (Beurer), BM 35</li>\n</ul>\n<p>Recommended equipment set for Home Care Nurses.</p>\n",
+    "short_description": "",
+    "sku": "",
+    "price": "455",
+    "regular_price": "455",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>455.00</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [1605, 618, 493, 495, 488],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      {
+        "id": 175,
+        "name": "Medical Diagnostics",
+        "slug": "medical-diagnostics"
+      }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 1611,
+        "date_created": "2018-02-05T20:06:17",
+        "date_created_gmt": "2018-02-05T04:06:17",
+        "date_modified": "2018-02-05T20:06:17",
+        "date_modified_gmt": "2018-02-05T04:06:17",
+        "src": "/wp-content/uploads/2018/02/Bundle.png",
+        "name": "Bundle",
+        "alt": "",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 7,
+    "meta_data": [
+      {
+        "id": 19548,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 19567, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 19568, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 19569, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 19570, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 19571, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 19572, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 19573, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 19574, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 19575, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 19576, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 19577, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 19578, "key": "_bulkdiscount_discount_5", "value": "" },
+      {
+        "id": 19607,
+        "key": "_yoast_wpseo_primary_product_cat",
+        "value": "175"
+      },
+      { "id": 19608, "key": "_yoast_wpseo_content_score", "value": "30" },
+      {
+        "id": 21445,
+        "key": "_yoast_wpseo_metadesc",
+        "value":
+          "Recommended diagnostics equipment set for Home Care Nurses. The Home Nurse Kit includes a blood pressure machine, thermometer, pulse oximeter, stethoscope and blood glucose monitoring system."
+      },
+      { "id": 21564, "key": "fb_visibility", "value": "1" },
+      {
+        "id": 21565,
+        "key": "fb_product_group_id",
+        "value": "2023864974322791"
+      },
+      { "id": 21566, "key": "fb_product_item_id", "value": "2023864984322790" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1609"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1605,
+    "name": "Terumo Medisafe Ex Blood Glucose Monitoring System (Pack A)",
+    "slug": "medisafe-ex-blood-glucose",
+    "permalink":
+      "https://store.staging.jaga-me.com/shop/medisafe-ex-blood-glucose/",
+    "date_created": "2018-02-05T11:25:49",
+    "date_created_gmt": "2018-02-05T03:25:49",
+    "date_modified": "2018-02-26T17:37:28",
+    "date_modified_gmt": "2018-02-26T09:37:28",
+    "type": "simple",
+    "status": "publish",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description":
+      "<p>EX Meter + EX Pouch + FINETOUCH Lancing Device + 50 Test Strips + 30 Lancets</p>\n<p>Specially developed to simplify blood glucose measurements:</p>\n<ul>\n<li>Ergonomically Designed Test Tip</li>\n<li>Flexible Blood Application</li>\n<li>Gentle and Almost Painless</li>\n<li>Simple to Use</li>\n<li>Easy Attachment of Lancet</li>\n<li>Safe and Clean</li>\n</ul>\n",
+    "short_description": "",
+    "sku": "",
+    "price": "118",
+    "regular_price": "118",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>118.00</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [488, 495, 1609, 618, 493],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      {
+        "id": 175,
+        "name": "Medical Diagnostics",
+        "slug": "medical-diagnostics"
+      }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 1612,
+        "date_created": "2018-02-05T20:09:47",
+        "date_created_gmt": "2018-02-05T04:09:47",
+        "date_modified": "2018-02-05T20:09:47",
+        "date_modified_gmt": "2018-02-05T04:09:47",
+        "src": "/wp-content/uploads/2018/02/Medisafe-EX2.png",
+        "name": "Medisafe EX2",
+        "alt": "",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 8,
+    "meta_data": [
+      {
+        "id": 19479,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 19506, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 19507, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 19508, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 19509, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 19510, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 19511, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 19512, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 19513, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 19514, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 19515, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 19516, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 19517, "key": "_bulkdiscount_discount_5", "value": "" },
+      {
+        "id": 19546,
+        "key": "_yoast_wpseo_primary_product_cat",
+        "value": "175"
+      },
+      { "id": 19547, "key": "_yoast_wpseo_content_score", "value": "30" },
+      {
+        "id": 21446,
+        "key": "_yoast_wpseo_metadesc",
+        "value":
+          "Specially developed to simplify blood glucose measurements. It includes an EX Meter, EX Pouch, FINETOUCH Lancing Device, 50 Test Strips and 30 Lancets."
+      },
+      { "id": 21567, "key": "fb_visibility", "value": "1" },
+      {
+        "id": 21568,
+        "key": "fb_product_group_id",
+        "value": "1630826516986670"
+      },
+      { "id": 21569, "key": "fb_product_item_id", "value": "1630826523653336" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1605"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1598,
+    "name": "Terumo Medisafe Ex Blood Glucose Monitoring System Pack A",
+    "slug": "",
+    "permalink": "https://store.staging.jaga-me.com/?post_type=product&p=1598",
+    "date_created": null,
+    "date_created_gmt": null,
+    "date_modified": "2018-02-05T10:33:13",
+    "date_modified_gmt": "2018-02-05T02:33:13",
+    "type": "simple",
+    "status": "draft",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description":
+      "<p>EX Meter + EX Pouch + FINETOUCH Lancing Device + 50 Test Strips + 30 Lancets</p>\n",
+    "short_description": "",
+    "sku": "",
+    "price": "",
+    "regular_price": "",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html": "",
+    "on_sale": false,
+    "purchasable": false,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [1385, 928, 1878, 610, 533],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [
+      { "id": 211, "name": "Uncategorized", "slug": "uncategorized" }
+    ],
+    "tags": [],
+    "images": [
+      {
+        "id": 0,
+        "date_created": "2018-06-29T03:03:56",
+        "date_created_gmt": "2018-06-28T11:03:56",
+        "date_modified": "2018-06-29T03:03:56",
+        "date_modified_gmt": "2018-06-28T11:03:56",
+        "src":
+          "https://store.staging.jaga-me.com/wp-content/plugins/woocommerce/assets/images/placeholder.png",
+        "name": "Placeholder",
+        "alt": "Placeholder",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 9,
+    "meta_data": [
+      {
+        "id": 19407,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "0"
+      },
+      { "id": 19413, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 19414, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 19415, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 19416, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 19417, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 19418, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 19419, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 19420, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 19421, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 19422, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 19423, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 19424, "key": "_bulkdiscount_discount_5", "value": "" },
+      { "id": 19453, "key": "_yoast_wpseo_primary_product_cat", "value": "" },
+      { "id": 19454, "key": "_yoast_wpseo_content_score", "value": "60" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1598"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  },
+  {
+    "id": 1584,
+    "name": "Duoderm Extra Thin Dressing",
+    "slug": "duoderm-extra-thin-dressing",
+    "permalink":
+      "https://store.staging.jaga-me.com/shop/duoderm-extra-thin-dressing/",
+    "date_created": "2018-01-15T16:46:53",
+    "date_created_gmt": "2018-01-15T08:46:53",
+    "date_modified": "2018-02-26T18:55:34",
+    "date_modified_gmt": "2018-02-26T10:55:34",
+    "type": "simple",
+    "status": "publish",
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description":
+      "<p>Designed to reduce the risk of further skin breakdown due to friction.</p>\n<p>DuoDERM<sup>®</sup> Extra Thin Dressing can be used as a primary hydrocolloid dressing for dry to lightly exuding wounds.</p>\n<p>It can be used as a secondary dressing to secure an AQUACEL<sup>®</sup> Dressing or an AQUACEL<sup>®</sup> Ag Dressing.</p>\n<p>The European Pressure Ulcer Advisory Panel (EPUAP) and The National Pressure Ulcer Advisory Panel (NPUAP) guidelines recommend the usage of hydrocolloids for the management of pressure ulcers.<a href=\"https://home/175949.cloudwaysapps.com/bjrvatcxyy/public_html.convatec.com/wound-skin/duoderm-dressings/duoderm-extra-thin-dressing/#biblio2\"><sup>1</sup></a></p>\n<p>DuoDERM<sup>®</sup> Extra Thin Dressing can be used to manage stage I and stage II pressure ulcers.</p>\n<p>10cm x 10cm, 10pcs/ box</p>\n",
+    "short_description":
+      "<ul>\n<li><span class=\"text-black\">A thin polyurethane film provides a bacterial and viral barrier when the dressing remains intact and without leakage.</span></li>\n<li><span class=\"text-black\">The film provides a waterproof barrier over the dressing.</span></li>\n<li><span class=\"text-black\">The dressing can be removed without damaging newly formed tissue.</span></li>\n<li><span class=\"text-black\">It is designed to reduce the risk of further skin breakdown due to friction by preventing contact with clothes/bed linen.</span></li>\n<li><span class=\"text-black\">It can be used on the body as a primary or secondary dressing.</span></li>\n<li><span class=\"text-black\">It can be used on skin tears and superficial wounds, dry to lightly exuding wounds, newly-formed tissue or skin at risk of further breakdown.</span></li>\n</ul>\n",
+    "sku": "",
+    "price": "48.50",
+    "regular_price": "48.50",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "price_html":
+      "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">&#36;</span>48.50</span>",
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 2,
+    "virtual": false,
+    "downloadable": false,
+    "downloads": [],
+    "download_limit": -1,
+    "download_expiry": -1,
+    "external_url": "",
+    "button_text": "",
+    "tax_status": "taxable",
+    "tax_class": "",
+    "manage_stock": false,
+    "stock_quantity": null,
+    "in_stock": true,
+    "backorders": "no",
+    "backorders_allowed": false,
+    "backordered": false,
+    "sold_individually": false,
+    "weight": "",
+    "dimensions": { "length": "", "width": "", "height": "" },
+    "shipping_required": true,
+    "shipping_taxable": true,
+    "shipping_class": "",
+    "shipping_class_id": 0,
+    "reviews_allowed": false,
+    "average_rating": "0.00",
+    "rating_count": 0,
+    "related_ids": [965, 542, 847, 987, 1389],
+    "upsell_ids": [],
+    "cross_sell_ids": [],
+    "parent_id": 0,
+    "purchase_note": "",
+    "categories": [{ "id": 206, "name": "Wound Care", "slug": "wound-care" }],
+    "tags": [],
+    "images": [
+      {
+        "id": 1585,
+        "date_created": "2018-01-16T00:38:50",
+        "date_created_gmt": "2018-01-15T08:38:50",
+        "date_modified": "2018-01-16T00:38:50",
+        "date_modified_gmt": "2018-01-15T08:38:50",
+        "src":
+          "/wp-content/uploads/2018/01/duoderm-extra-thin-cgf-hydrocolloid-dressing-by-convatec-1.jpg",
+        "name": "Duoderm Extra Thin Cgf Hydrocolloid Dressing By Convatec 1",
+        "alt": "",
+        "position": 0
+      }
+    ],
+    "attributes": [],
+    "default_attributes": [],
+    "variations": [],
+    "grouped_products": [],
+    "menu_order": 10,
+    "meta_data": [
+      {
+        "id": 19178,
+        "key": "algolia_searchable_posts_records_count",
+        "value": "1"
+      },
+      { "id": 19191, "key": "_bulkdiscount_text_info", "value": "" },
+      { "id": 19192, "key": "_bulkdiscount_enabled", "value": "yes" },
+      { "id": 19193, "key": "_bulkdiscount_quantity_1", "value": "" },
+      { "id": 19194, "key": "_bulkdiscount_discount_1", "value": "" },
+      { "id": 19195, "key": "_bulkdiscount_quantity_2", "value": "" },
+      { "id": 19196, "key": "_bulkdiscount_discount_2", "value": "" },
+      { "id": 19197, "key": "_bulkdiscount_quantity_3", "value": "" },
+      { "id": 19198, "key": "_bulkdiscount_discount_3", "value": "" },
+      { "id": 19199, "key": "_bulkdiscount_quantity_4", "value": "" },
+      { "id": 19200, "key": "_bulkdiscount_discount_4", "value": "" },
+      { "id": 19201, "key": "_bulkdiscount_quantity_5", "value": "" },
+      { "id": 19202, "key": "_bulkdiscount_discount_5", "value": "" },
+      {
+        "id": 19231,
+        "key": "_yoast_wpseo_primary_product_cat",
+        "value": "206"
+      },
+      { "id": 19232, "key": "_yoast_wpseo_content_score", "value": "30" },
+      {
+        "id": 21447,
+        "key": "_yoast_wpseo_metadesc",
+        "value":
+          "DuoDERM® Extra Thin Dressing can be used to manage Stage I and Stage II pressure ulcers. Designed to reduce the risk of further skin breakdown due to friction. Need help? Speak to a professional Jaga-Me Home Care Nurse."
+      },
+      { "id": 21570, "key": "fb_visibility", "value": "1" },
+      {
+        "id": 21571,
+        "key": "fb_product_group_id",
+        "value": "1816670655011336"
+      },
+      { "id": 21572, "key": "fb_product_item_id", "value": "1816670658344669" }
+    ],
+    "composite_layout": "",
+    "composite_shop_price_calc": "",
+    "composite_components": [],
+    "composite_scenarios": [],
+    "_links": {
+      "self": [
+        {
+          "href":
+            "https://store.staging.jaga-me.com/wp-json/wc/v2/products/1584"
+        }
+      ],
+      "collection": [
+        { "href": "https://store.staging.jaga-me.com/wp-json/wc/v2/products" }
+      ]
+    }
+  }
+]
